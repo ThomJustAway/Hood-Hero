@@ -1,11 +1,12 @@
-﻿namespace Problem
+﻿using JetBrains.Annotations;
+
+namespace Problem
 {
     public enum SubProblem
     {
-        IanInfestation,
+        RubbishOverflow,
         RodentInfestation
     }
-
 }
 
 
