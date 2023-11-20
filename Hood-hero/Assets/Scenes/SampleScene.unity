@@ -246,8 +246,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainProblem: 0
-  subProblem: 0
+  subProblem: 1
   IsSeriousProblem: 0
+  timer: 0
 --- !u!212 &879885848
 SpriteRenderer:
   m_ObjectHideFlags: 0

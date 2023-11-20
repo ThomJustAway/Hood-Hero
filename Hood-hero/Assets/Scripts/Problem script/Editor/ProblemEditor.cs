@@ -17,5 +17,12 @@ public class ProblemEditor : Editor
         isSeriousProblem = serializedObject.FindProperty("IsSeriousProblem");
     }
 
-    
+    public override void OnInspectorGUI()
+    {
+        serializedObject.Update();
+
+        EditorGUILayout.PropertyField(mainProblem);
+
+        serializedObject.ApplyModifiedProperties();
+    }
 }

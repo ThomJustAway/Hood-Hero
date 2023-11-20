@@ -11,7 +11,8 @@ public class ProblemSelector : MonoBehaviour
     public MainProblem MainProblem { get { return mainProblem; } }
     public SubProblem SubProblem { get { return subProblem; } }
 
-    public bool IsSeriousProblem = false;
+    [SerializeField] private bool IsSeriousProblem = false;
+    [SerializeField] private float timer = 0.0f;
 }
 
 
