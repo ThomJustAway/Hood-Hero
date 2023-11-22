@@ -19,15 +19,14 @@ public class PlayerMovement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
         Vector3 movementVector = new Vector3(horizontal, vertical, 0);
-
-        if (movementVector != Vector3.zero)
-        {
-            Quaternion rotation = Quaternion.FromToRotation(transform.rotation.eulerAngles, movementVector);
-            transform.Rotate(rotation.eulerAngles);
-        }
-
         transform.position += movementVector.normalized * speed * Time.deltaTime; //move without rotation affecting
-        Debug.DrawRay(transform.position, transform.up * 10 , Color.green);
+        RotatePlayer(movementVector);
+    }
+
+    private void RotatePlayer(Vector3 movementVector)
+    {
+        float angleToRotate = Vector3.Angle(transform.up, movementVector.normalized);
+        transform.Rotate(Quaternion.AngleAxis(angleToRotate, Vector3.forward).eulerAngles);
     }
 
     //private void FixedUpdate()

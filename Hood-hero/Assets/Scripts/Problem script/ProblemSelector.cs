@@ -14,6 +14,12 @@ public class ProblemSelector : MonoBehaviour
     [SerializeField] private bool isSeriousProblem = false;
     public bool IsSeriousProblem { get { return isSeriousProblem; } }
     [SerializeField] private float timer = 0.0f;
+
+    public void IsSolve()
+    {
+        //send event
+        enabled = false; //make it disapper
+    }
 }
 
 
