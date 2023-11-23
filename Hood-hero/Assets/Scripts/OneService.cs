@@ -19,7 +19,7 @@ namespace Assets.Scripts
         {
             // add extra perimeter here to only do raycasting on problems only
             RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up, distanceToSense);
-            Debug.DrawRay(transform.position, transform.up * distanceToSense, Color.green);
+            //Debug.DrawRay(transform.position, transform.up * distanceToSense, Color.green);
 
             if (hit.collider == null)
             {
