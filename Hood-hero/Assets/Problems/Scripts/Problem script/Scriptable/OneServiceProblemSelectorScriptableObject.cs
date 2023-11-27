@@ -9,6 +9,7 @@ namespace Assets.Scripts.Problem_script
     {
         public MainProblem mainProbelm;
         public SubProblem[] subProblems;
+        public Sprite picture;
 
         
     }

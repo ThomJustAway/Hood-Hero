@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainProbelm: 1
   subProblems: 02000000
+  picture: {fileID: 21300000, guid: 0e1e72794554de5419a2261cd512df84, type: 3}
