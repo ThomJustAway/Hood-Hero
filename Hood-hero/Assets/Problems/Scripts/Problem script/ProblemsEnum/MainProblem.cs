@@ -3,7 +3,8 @@
     public enum MainProblem
     {
         Cleanliness,
-        HDB
+        FacilitiesInHDBEstates,
+        RoadAndFootPaths
     }
 }
 

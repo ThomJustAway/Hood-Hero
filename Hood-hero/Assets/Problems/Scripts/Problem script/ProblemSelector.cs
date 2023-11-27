@@ -7,7 +7,7 @@ using Problem;
 public class ProblemSelector : MonoBehaviour 
 {
     [SerializeField] private MainProblem mainProblem = MainProblem.Cleanliness;
-    [SerializeField] private SubProblem subProblem = SubProblem.RodentInfestation;
+    [SerializeField] private SubProblem subProblem = SubProblem.DirtyPublicAreas;
     public MainProblem MainProblem { get { return mainProblem; } }
     public SubProblem SubProblem { get { return subProblem; } }
 

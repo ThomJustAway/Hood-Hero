@@ -4,8 +4,16 @@ namespace Problem
 {
     public enum SubProblem
     {
-        RubbishOverflow,
-        RodentInfestation
+        //cleanliness
+        OverFlowingLitterBin,
+        DirtyPublicAreas,
+
+        //Facilities in HDB Estates
+        LightingMaintenance,
+
+        //Roads & footpaths
+        FaultyStreetLight,
+        FootPathMaintenance
     }
 }
 
