@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b46abd7aab514243b4feded4c594639, type: 3}
-  m_Name: Cleanliness
+  m_Name: Facilities in HDB Estates
   m_EditorClassIdentifier: 
-  mainProbelm: 0
-  subProblems: 0000000001000000
+  mainProbelm: 1
+  subProblems: 02000000
