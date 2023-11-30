@@ -5,17 +5,35 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
-    public class OneService : MonoBehaviour
+    public class ProblemFinder : MonoBehaviour
     {
-        private ProblemSelector selectedProblem = null;
+        public static ProblemFinder Instance;
+        public ProblemSelector selectedProblem { get; private set; }
         [SerializeField] private GameObject button;
         [SerializeField] private GameObject buttonMoveLocation;
         [SerializeField] private float distanceToSense = 1f;
         private bool isButtonAway = true;
         private Vector3 buttonInitialPosition;
         private Vector3 buttonMoveToPosition;
+
+        private void Awake()
+        {
+            if(Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                print("cant have more than one instance of the game object");
+                Destroy(Instance);
+            }
+            selectedProblem = null;
+        }
+
         void Start()
         {
+
+
             buttonInitialPosition = button.transform.position;
             //Debug.Log("Initial Position = " + buttonInitialPosition);
             buttonMoveToPosition = buttonMoveLocation.transform.position;
@@ -26,7 +44,11 @@ namespace Assets.Scripts
         void Update()
         {
             CheckingProblem();
+            MovingButton();
+        }
 
+        private void MovingButton()
+        {
             if (isButtonAway == false)
             {
                 button.transform.position = Vector3.MoveTowards(button.transform.position, buttonInitialPosition, Time.deltaTime * 1500.0f);

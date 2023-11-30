@@ -4,6 +4,7 @@ namespace Problem
 {
     public enum SubProblem
     {
+        None,
         //cleanliness
         OverFlowingLitterBin,
         DirtyPublicAreas,

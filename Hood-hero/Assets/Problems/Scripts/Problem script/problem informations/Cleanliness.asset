@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b46abd7aab514243b4feded4c594639, type: 3}
   m_Name: Cleanliness
   m_EditorClassIdentifier: 
-  mainProbelm: 0
-  subProblems: 0000000001000000
+  mainCategory: 1
+  subProblems: 01000000
   picture: {fileID: 21300000, guid: 95f06975099f18a4fa3da28ea274f1f6, type: 3}
+  mainProblemText: Cleanliness

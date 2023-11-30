@@ -2,6 +2,7 @@
 {
     public enum MainProblem
     {
+        None,
         Cleanliness,
         FacilitiesInHDBEstates,
         RoadAndFootPaths

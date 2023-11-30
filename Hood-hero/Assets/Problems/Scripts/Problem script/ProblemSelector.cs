@@ -6,10 +6,10 @@ using Problem;
 
 public class ProblemSelector : MonoBehaviour 
 {
-    [SerializeField] private MainProblem mainProblem = MainProblem.Cleanliness;
-    [SerializeField] private SubProblem subProblem = SubProblem.DirtyPublicAreas;
-    public MainProblem MainProblem { get { return mainProblem; } }
-    public SubProblem SubProblem { get { return subProblem; } }
+    [SerializeField] private Problem.MainProblem mainProblem = Problem.MainProblem.Cleanliness;
+    [SerializeField] private Problem.SubProblem subProblem = Problem.SubProblem.DirtyPublicAreas;
+    public Problem.MainProblem MainProblem { get { return mainProblem; } }
+    public Problem.SubProblem SubProblem { get { return subProblem; } }
 
     [SerializeField] private bool isSeriousProblem = false;
     public bool IsSeriousProblem { get { return isSeriousProblem; } }
@@ -19,6 +19,7 @@ public class ProblemSelector : MonoBehaviour
     {
         //send event
         enabled = false; //make it disapper
+        gameObject.SetActive(false);
     }
 }
 

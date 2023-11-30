@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b46abd7aab514243b4feded4c594639, type: 3}
   m_Name: Facilities in HDB Estates
   m_EditorClassIdentifier: 
-  mainProbelm: 1
+  mainCategory: 2
   subProblems: 02000000
   picture: {fileID: 21300000, guid: 0e1e72794554de5419a2261cd512df84, type: 3}
+  mainProblemText: Facilities in HDB Estates

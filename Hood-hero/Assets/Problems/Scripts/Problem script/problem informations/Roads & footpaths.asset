@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b46abd7aab514243b4feded4c594639, type: 3}
   m_Name: Roads & footpaths
   m_EditorClassIdentifier: 
-  mainProbelm: 2
+  mainCategory: 3
   subProblems: 0300000004000000
   picture: {fileID: 21300000, guid: 94f8397a2361f5d4ab3a41070f587f1f, type: 3}
+  mainProblemText: Roads & Footpaths

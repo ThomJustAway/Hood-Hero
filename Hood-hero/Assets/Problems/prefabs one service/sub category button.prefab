@@ -142,15 +142,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sub category
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4175b4455f44f8a46acd51d6ffe6af96, type: 2}
+  m_sharedMaterial: {fileID: -8740812496105819422, guid: 4175b4455f44f8a46acd51d6ffe6af96, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 4163209699413889602}
   - component: {fileID: 1492321481931596390}
   - component: {fileID: 6085465162717287976}
+  - component: {fileID: 8188828446424817072}
   m_Layer: 0
   m_Name: sub category button
   m_TagString: Untagged
@@ -275,7 +276,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -299,4 +300,35 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8188828446424817072}
+        m_TargetAssemblyTypeName: CategorySelector, Assembly-CSharp
+        m_MethodName: ActivateUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8188828446424817072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8899829479274516938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f32e10ec43cf46449668eed1f5679bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 3310348310382605422}
+  text: {fileID: 8013066996764199862}
+  backgroundColor: {r: 0, g: 0, b: 1, a: 1}
+  startingColor: {r: 0.80392164, g: 0.80392164, b: 0.80392164, a: 0}
+  buttonStartingColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+  colorFadeSpeed: 1
+  logo: {fileID: 0}
