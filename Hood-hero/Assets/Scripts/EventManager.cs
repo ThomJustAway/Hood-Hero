@@ -10,12 +10,13 @@ public class EventManager : MonoBehaviour
     //int lives;
     //public float[] taskcounter;
 
+    public GameObject StartingLives;
     public GameObject FirstLiveText;
     public GameObject SecondLiveText;
     public GameObject ThirdLiveText;
     public GameObject RestartText;
 
-
+    public GameObject StatingCompleated;
     public GameObject CompleatFirstText;
     public GameObject CompleatSecondText;
     public GameObject CompleatThirdText;
@@ -26,7 +27,7 @@ public class EventManager : MonoBehaviour
     public GameObject OverFlow;
     public GameObject OldObject;
 
-    public int i = 1;
+    //public int i = 1;
 
     void Update()
     {
@@ -41,24 +42,27 @@ public class EventManager : MonoBehaviour
         {
             compleated++;
             CompleatFirstText.SetActive(true);
-            Debug.Log("first called +" + compleated);
+            StatingCompleated.SetActive(false);
+            //Debug.Log("first called +" + compleated);
             return compleated;
         }
         if (compleated == 2)
         {
             compleated++;
             CompleatSecondText.SetActive(true);
+            CompleatFirstText.SetActive(false);
             return compleated;
         }
         if (compleated == 3)
         {
             compleated++;
             CompleatThirdText.SetActive(true);
+            CompleatSecondText.SetActive(false);
             WinText.SetActive(true);
             return compleated;
         }
 
-        return compleated;
+        return 0;
     }
     public int CrossCount(int lives)
     {
@@ -68,22 +72,25 @@ public class EventManager : MonoBehaviour
         {
             lives++;
             FirstLiveText.SetActive(true);
+            StartingLives.SetActive(false);
             return lives;
         }
         if (lives == 2)
         {
             lives++;
             SecondLiveText.SetActive(true);
+            FirstLiveText.SetActive(false);
             return lives;
         }
         if (lives == 3)
         {
             lives++;
             ThirdLiveText.SetActive(true);
+            SecondLiveText.SetActive(false);
             RestartText.SetActive(true);
             return lives = 0;
         }
-        return 1;
+        return 0;
     }
     public void TooLate()
     {

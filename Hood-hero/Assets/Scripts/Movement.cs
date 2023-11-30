@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
     [SerializeField]
     public float mWalkSpeed = 10f;
     public int i;
+    public int noOfCross;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,7 @@ public class Movement : MonoBehaviour
         HandleInputs();
         Move();
         mEventManager.CompleatedTask(i);
+        mEventManager.CrossCount(noOfCross);
 
 
     }
