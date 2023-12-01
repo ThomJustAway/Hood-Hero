@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SliderController : MonoBehaviour
+namespace HoodHeroUI
 {
-    int progress = 0;
-    public Slider slider;
-
-    public void UpdateProgress()
+    public class SliderController : MonoBehaviour
     {
-        progress++;
-        slider.value = progress;
+        int progress = 0;
+        public Slider slider;
+
+        public void UpdateProgress()
+        {
+            progress++;
+            slider.value = progress;
+        }
     }
+
 }
