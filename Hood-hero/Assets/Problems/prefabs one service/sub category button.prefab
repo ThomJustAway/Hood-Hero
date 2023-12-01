@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 4163209699413889602}
   - component: {fileID: 1492321481931596390}
   - component: {fileID: 6085465162717287976}
-  - component: {fileID: 8188828446424817072}
+  - component: {fileID: 7901857303854892117}
   m_Layer: 0
   m_Name: sub category button
   m_TagString: Untagged
@@ -301,8 +301,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8188828446424817072}
-        m_TargetAssemblyTypeName: CategorySelector, Assembly-CSharp
+      - m_Target: {fileID: 7901857303854892117}
+        m_TargetAssemblyTypeName: Assets.Problems.Scripts.Problem_script.Popup.buttons.ButtonAbstractClass,
+          Assembly-CSharp
         m_MethodName: ActivateUI
         m_Mode: 1
         m_Arguments:
@@ -313,7 +314,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8188828446424817072
+--- !u!114 &7901857303854892117
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -322,13 +323,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8899829479274516938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f32e10ec43cf46449668eed1f5679bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fbef99a66ed24e4996e92a92f4e139a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 3310348310382605422}
   text: {fileID: 8013066996764199862}
-  backgroundColor: {r: 0, g: 0, b: 1, a: 1}
-  startingColor: {r: 0.80392164, g: 0.80392164, b: 0.80392164, a: 0}
-  buttonStartingColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-  colorFadeSpeed: 1
-  logo: {fileID: 0}
+  ActivatedbackgroundColor: {r: 0, g: 0, b: 1, a: 1}
+  UnactivatedbuttonColor: {r: 1, g: 1, b: 1, a: 1}

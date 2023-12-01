@@ -11,12 +11,20 @@ public class ProblemEditor : Editor
     SerializedProperty subProblem;
     SerializedProperty isSeriousProblem;
     SerializedProperty timer;
+    SerializedProperty closeUpImage;
+    SerializedProperty farAwayImage;
+    SerializedProperty details;
+
+    bool imageDetail = false;
     private void OnEnable()
     {
         mainProblem = serializedObject.FindProperty("mainProblem");
         subProblem = serializedObject.FindProperty("subProblem");
         isSeriousProblem = serializedObject.FindProperty("isSeriousProblem");
         timer = serializedObject.FindProperty("timer");
+        closeUpImage = serializedObject.FindProperty("closeUpImage");
+        farAwayImage = serializedObject.FindProperty("farAwayImage");
+        details = serializedObject.FindProperty("details");
     }
 
     public override void OnInspectorGUI()
@@ -32,6 +40,15 @@ public class ProblemEditor : Editor
         {
             EditorGUILayout.PropertyField(timer);
         }
+
+        imageDetail= EditorGUILayout.BeginFoldoutHeaderGroup(imageDetail, "Image detail");
+        if (imageDetail)
+        {
+            EditorGUILayout.PropertyField(closeUpImage);
+            EditorGUILayout.PropertyField(farAwayImage);
+        }
+        EditorGUILayout.EndFoldoutHeaderGroup();
+        EditorGUILayout.PropertyField(details);
 
         serializedObject.ApplyModifiedProperties();
     }

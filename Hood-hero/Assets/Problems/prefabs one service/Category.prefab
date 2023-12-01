@@ -87,8 +87,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1580504126903663363}
   - component: {fileID: 6261618222111703983}
-  - component: {fileID: 8095429648278691168}
   - component: {fileID: 6278086245678930335}
+  - component: {fileID: 7571043495561089742}
   m_Layer: 0
   m_Name: Category
   m_TagString: Untagged
@@ -168,25 +168,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8095429648278691168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2318107399581934273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f32e10ec43cf46449668eed1f5679bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  background: {fileID: 1594770086116358770}
-  text: {fileID: 4264728630689481612}
-  backgroundColor: {r: 0, g: 0, b: 1, a: 1}
-  startingColor: {r: 0.83921576, g: 0.83921576, b: 0.83921576, a: 0}
-  buttonStartingColor: {r: 0, g: 0, b: 0, a: 0}
-  colorFadeSpeed: 1
-  logo: {fileID: 6286816812694001884}
 --- !u!114 &6278086245678930335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,8 +212,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8095429648278691168}
-        m_TargetAssemblyTypeName: CategorySelector, Assembly-CSharp
+      - m_Target: {fileID: 7571043495561089742}
+        m_TargetAssemblyTypeName: Assets.Problems.Scripts.Problem_script.Popup.buttons.ButtonAbstractClass,
+          Assembly-CSharp
         m_MethodName: ActivateUI
         m_Mode: 1
         m_Arguments:
@@ -243,6 +225,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7571043495561089742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2318107399581934273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffd20b0cb3b24a34581d5b3b4a39eed8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 1594770086116358770}
+  text: {fileID: 4264728630689481612}
+  ActivatedbackgroundColor: {r: 0, g: 0, b: 1, a: 1}
+  UnactivatedbuttonColor: {r: 0.83921576, g: 0.83921576, b: 0.83921576, a: 1}
+  logo: {fileID: 6286816812694001884}
 --- !u!1 &5184756909805445742
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using Assets.Problems.Scripts.Problem_script.Popup.buttons;
 using Assets.Scripts;
 using Assets.Scripts.Problem_script;
 using Problem;
@@ -22,23 +23,15 @@ public class OneServiceApp : MonoBehaviour
 
     #region prefabs
     [Header("prefabs")]
-    [SerializeField] private CategorySelector mainCategoryPrefab;
-    [SerializeField] private CategorySelector subCategoryPrefab;
+    [SerializeField] private MainCategoryButton mainCategoryPrefab;
+    [SerializeField] private SubCategoryButton subCategoryPrefab;
+    List<GameObject> subCatsButtons = new List<GameObject>();
+
     #endregion
 
     #region selected choice
     public MainProblem selectedMainCategory { get; private set; }
     public SubProblem selectedSubCategory { get; private set; }
-
-    public void ChangeMainCategory(MainProblem mainCategory)
-    {
-        selectedMainCategory = mainCategory;
-    }
-
-    public void ChangeSubCategory(SubProblem subCategory)
-    {
-        selectedSubCategory = subCategory;
-    }
 
     [Header("Referencing gameobject in game scene")]
     [SerializeField] private GameObject SubmitCaseButton;
@@ -66,27 +59,20 @@ public class OneServiceApp : MonoBehaviour
         foreach(var problem in avaliableProblems)
         {
             //setting up the main category
-            
-            List<GameObject> subCats = new List<GameObject>();
+
             foreach(var subCategory in problem.subProblems)
             {
                 GameObject subcat = Instantiate(subCategoryPrefab.gameObject, subCategoryContainer.transform);
-                subcat.GetComponent<CategorySelector>().Init(problem , true , subCategory);
-                subCats.Add(subcat);
+                subcat.GetComponent<SubCategoryButton>().Init(subCategory);
+                subCatsButtons.Add(subcat);
             }
             GameObject mainCat = Instantiate(mainCategoryPrefab.gameObject, mainCategoryContainer.transform);
-            mainCat.GetComponent<CategorySelector>().Init(problem,
-                false,
-                SubProblem.None,
-                subCats.ToArray());
+            mainCat.GetComponent<MainCategoryButton>().Init(problem);
 
         }
     }
 
-
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         CheckIfConditionsForCorrect();
     }
@@ -105,6 +91,8 @@ public class OneServiceApp : MonoBehaviour
     }
 
     //called in the close button event caller
+
+    #region app related
     public void CloseApp()
     {
         ResetValues();
@@ -137,16 +125,47 @@ public class OneServiceApp : MonoBehaviour
         }
         CloseApp();
     }
-
-    public void RetrieveInformation()
-    {
-
-    }
-
-    
     private void ResetValues()
     {
         selectedMainCategory = MainProblem.None;
         selectedSubCategory = SubProblem.None;
     }
+    #endregion
+
+    #region changing value
+    public void ChangeMainCategory(MainProblem mainCategory)
+    {
+        selectedMainCategory = mainCategory;
+        foreach(var problem in avaliableProblems)
+        {
+            if(problem.mainCategory == mainCategory)
+            {
+                SetSubProblemButton(problem);
+                return;
+            }
+        }
+        selectedSubCategory = SubProblem.None;
+    }
+
+    private void SetSubProblemButton(OneServiceProblemSelectorScriptableObject problem)
+    {
+        foreach (var subCatButton in subCatsButtons)
+        {
+            var component = subCatButton.GetComponent<SubCategoryButton>();
+            if (problem.subProblems.Contains(component.subProblemAssign))
+            {
+                subCatButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                subCatButton.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void ChangeSubCategory(SubProblem subCategory)
+    {
+        selectedSubCategory = subCategory;
+    }
+    #endregion
 }

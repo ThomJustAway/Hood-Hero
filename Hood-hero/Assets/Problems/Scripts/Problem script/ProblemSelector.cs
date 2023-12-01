@@ -3,17 +3,30 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using Problem;
+using UnityEngine.UI;
+using System;
 
 public class ProblemSelector : MonoBehaviour 
 {
     [SerializeField] private Problem.MainProblem mainProblem = Problem.MainProblem.Cleanliness;
     [SerializeField] private Problem.SubProblem subProblem = Problem.SubProblem.DirtyPublicAreas;
-    public Problem.MainProblem MainProblem { get { return mainProblem; } }
-    public Problem.SubProblem SubProblem { get { return subProblem; } }
+    public MainProblem MainProblem { get { return mainProblem; } }
+    public SubProblem SubProblem { get { return subProblem; } }
 
     [SerializeField] private bool isSeriousProblem = false;
     public bool IsSeriousProblem { get { return isSeriousProblem; } }
     [SerializeField] private float timer = 0.0f;
+
+    #region images
+    [Header("Image detail")]
+    [SerializeField] private Sprite closeUpImage;
+    [SerializeField] private Sprite farAwayImage;
+    [SerializeField] private DetailOfTheProblem[] details;
+    public Sprite CloseupImage { get { return closeUpImage; } }
+    public Sprite FarAwayImage { get { return farAwayImage; } }
+    public DetailOfTheProblem[] Details { get {  return details; } }
+
+    #endregion
 
     public void IsSolve()
     {
@@ -23,4 +36,10 @@ public class ProblemSelector : MonoBehaviour
     }
 }
 
-
+[System.Serializable]
+public struct DetailOfTheProblem
+{
+    [TextArea(4, 10)]
+    public string detail;
+    public bool isCorrect;
+}
