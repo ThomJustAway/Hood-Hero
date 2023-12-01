@@ -1,0 +1,11 @@
+Make story more detailed - boring ahh story lmao
+
+More detailed graphic/expanded problems
+
+Reconsider UI: do we need a giant red exclamation mark as an action button or can we just tap on the
+problem itself lmao
+
+OneService app - do not have the in-game app take up all the screen and disconnect the player from the game -
+find another way to blend it into the game
+
+Fake problems - possibly implement problems that may not require reporting, such as '1 + 1 = 2' written in pencil
