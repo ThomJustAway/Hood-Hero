@@ -13,7 +13,8 @@ namespace Assets.Scripts.Problem_script
         public Sprite picture;
 
         [SerializeField] private string mainProblemText;
-
         public string MainproblemText { get { return mainProblemText; } }
+
+
     }
 }

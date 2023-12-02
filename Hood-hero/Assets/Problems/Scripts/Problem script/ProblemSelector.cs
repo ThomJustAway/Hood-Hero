@@ -16,7 +16,6 @@ public class ProblemSelector : MonoBehaviour
     [SerializeField] private bool isSeriousProblem = false;
     public bool IsSeriousProblem { get { return isSeriousProblem; } }
     [SerializeField] private float timer = 0.0f;
-
     #region images
     [Header("Image detail")]
     [SerializeField] private Sprite closeUpImage;
@@ -42,4 +41,10 @@ public struct DetailOfTheProblem
     [TextArea(4, 10)]
     public string detail;
     public bool isCorrect;
+
+    public DetailOfTheProblem(string detail, bool isCorrect)
+    {
+        this.detail = detail;
+        this.isCorrect = isCorrect;
+    }
 }

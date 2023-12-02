@@ -16,6 +16,8 @@ namespace Assets.Scripts
         private Vector3 buttonInitialPosition;
         private Vector3 buttonMoveToPosition;
 
+        private OneServiceApp app;
+
         private void Awake()
         {
             if(Instance == null)
@@ -32,12 +34,11 @@ namespace Assets.Scripts
 
         void Start()
         {
-
-
             buttonInitialPosition = button.transform.position;
             //Debug.Log("Initial Position = " + buttonInitialPosition);
             buttonMoveToPosition = buttonMoveLocation.transform.position;
-            //Debug.Log("Move To Position = " + buttonMoveToPosition);
+
+            app = OneServiceApp.instance;
         }
 
         // Update is called once per frame
@@ -67,25 +68,16 @@ namespace Assets.Scripts
 
             if (hit.collider == null)
             {
-                //button.SetActive(false);
-                //if (isButtonAway == true)
-                //{
-                //    button.transform.position = Vector3.MoveTowards(button.transform.position, buttonInitialPosition, Time.deltaTime * 2.0f);
-                //    isButtonAway = false;
-                //    //Debug.Log("Moving Back...");
-                //}
                 isButtonAway = false;
                 selectedProblem = null; 
+                if(app.isActiveAndEnabled)
+                {
+                    //make sure to close the app if it is open
+                    app.CloseApp();
+                }
             }
             else
             {
-                //button.SetActive(true);
-                //if (isButtonAway == false)
-                //{
-                //    button.transform.position = Vector3.MoveTowards(button.transform.position, buttonMoveToPosition, Time.deltaTime * 2.0f);
-                //    isButtonAway = true;
-                //    //Debug.Log("Moving Towards...");
-                //}
                 isButtonAway = true;
                 selectedProblem = hit.collider.GetComponent<ProblemSelector>();
             }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7318813268081317281}
   - component: {fileID: 6150026817401884276}
   - component: {fileID: 759843219235428236}
+  - component: {fileID: 2406385195314550852}
   m_Layer: 0
   m_Name: Detail button
   m_TagString: Untagged
@@ -96,7 +97,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -120,7 +121,36 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6150026817401884276}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2406385195314550852}
+        m_TargetAssemblyTypeName: Assets.Problems.Scripts.Problem_script.Popup.buttons.ButtonAbstractClass,
+          Assembly-CSharp
+        m_MethodName: ActivateUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2406385195314550852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3339158675913429682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c95335c78dfe9284f8fc32ecb4b81a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 6150026817401884276}
+  text: {fileID: 8087682800808807633}
+  ActivatedbackgroundColor: {r: 0, g: 0, b: 1, a: 1}
+  UnactivatedbuttonColor: {r: 0.9607844, g: 0.9607844, b: 0.9607844, a: 1}
 --- !u!1 &5801878262965892032
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,15 +220,15 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4175b4455f44f8a46acd51d6ffe6af96, type: 2}
+  m_sharedMaterial: {fileID: -8740812496105819422, guid: 4175b4455f44f8a46acd51d6ffe6af96, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
