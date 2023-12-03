@@ -20,11 +20,11 @@ public class EManager : MonoBehaviour
     public Image FirstCross;
     public Image SecondCross;
     public Image ThirdCross;
-    public Color CrosColor;
+    public Color CrossColor;
 
     public TextMeshPro WinText;
 
-    int compleated;
+    int completed;
     int total_task;
 
     public GameObject OverFlow;
@@ -40,47 +40,47 @@ public class EManager : MonoBehaviour
         mSlider = GetComponent<SliderController>();
         FirstStar = GetComponent<Image>();
         StarColor = Color.yellow;
-        CrosColor = Color.red;
+        CrossColor = Color.red;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //CompleatedTask(i);
+        //CompletedTask(i);
     }
-    public int CompleatedTask(int compleated , int total_task)
+    public int CompletedTask(int completed , int total_task)
     {
 
-        if (compleated == total_task/2)//50%
+        if (completed == total_task/2)//50%
         {
             
-            //CompleatFirstText.enabled = true;
-            mSlider.UpdateProgress(compleated,total_task);
+            //CompleteFirstText.enabled = true;
+            mSlider.UpdateProgress(completed,total_task);
             problem1.text = "test";
             FirstStar.color = StarColor;
-            compleated++;
-            Debug.Log("first called +" + compleated);
-            return compleated;
+            completed++;
+            Debug.Log("first called +" + completed);
+            return completed;
         }
-        if (compleated == total_task * 0.7)//75% 0.7
+        if (completed == total_task * 0.7)//75% 0.7
         {
-            mSlider.UpdateProgress(compleated, total_task);
+            mSlider.UpdateProgress(completed, total_task);
             SecondStar.color = StarColor;
-            compleated++;
-            //CompleatSecondText.enabled = true;
-            return compleated;
+            completed++;
+            //CompleteSecondText.enabled = true;
+            return completed;
         }
-        if (compleated == total_task)//100%
+        if (completed == total_task)//100%
         {
-            mSlider.UpdateProgress(compleated, total_task);
+            mSlider.UpdateProgress(completed, total_task);
             ThirdStar.color = StarColor;
-            compleated++;
-            //CompleatThirdText.enabled = true;
+            completed++;
+            //CompleteThirdText.enabled = true;
             //WinText.enabled = true;
-            return compleated;
+            return completed;
         }
 
-        return compleated;
+        return completed;
     }
     public int CrossCount(int lives)
     {
@@ -89,19 +89,19 @@ public class EManager : MonoBehaviour
         if (lives == 1)
         {
             lives++;
-            FirstCross.color = CrosColor;
+            FirstCross.color = CrossColor;
             return lives;
         }
         if (lives == 2)
         {
             lives++;
-            SecondCross.color = CrosColor;
+            SecondCross.color = CrossColor;
             return lives;
         }
         if (lives == 3)
         {
             lives++;
-            ThirdCross.color = CrosColor;
+            ThirdCross.color = CrossColor;
             //RestartText.enabled = true;
             return lives = 0;
         }
@@ -112,7 +112,7 @@ public class EManager : MonoBehaviour
         OverFlow.SetActive(true);
         OldObject.SetActive(false);
     }
-    public void SceanMover(int current)
+    public void SceneMover(int current)
     {
         Scene scene = SceneManager.GetActiveScene();
         Debug.Log("Active Scene is '" + scene.name + "'.");

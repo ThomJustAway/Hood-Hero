@@ -14,7 +14,7 @@ public class Move : MonoBehaviour
 
     [SerializeField]
     public float mWalkSpeed = 10f;
-    public int compleated = 1;
+    public int completed = 1;
     public int lives = 1;
     public int total_task = 10;
     // Start is called before the first frame update
@@ -29,7 +29,7 @@ public class Move : MonoBehaviour
     {
         HandleInputs();
         Moves();
-        mEManager.CompleatedTask(compleated , total_task);
+        mEManager.CompletedTask(completed , total_task);
         mEManager.CrossCount(lives);
     }
     private void HandleInputs()
