@@ -13,18 +13,18 @@ namespace HoodHeroUI
         //public float[] taskcounter;
 
         public GameObject StartingLives;
-        public GameObject FirstLiveText;
-        public GameObject SecondLiveText;
-        public GameObject ThirdLiveText;
+        public GameObject FirstLifeText;
+        public GameObject SecondLifeText;
+        public GameObject ThirdLifeText;
         public GameObject RestartText;
 
-        public GameObject StatingCompleated;
-        public GameObject CompleatFirstText;
-        public GameObject CompleatSecondText;
-        public GameObject CompleatThirdText;
+        public GameObject StatingCompleted;
+        public GameObject CompleteFirstText;
+        public GameObject CompleteSecondText;
+        public GameObject CompleteThirdText;
         public GameObject WinText;
 
-        int compleated;
+        int completed;
 
         public GameObject OverFlow;
         public GameObject OldObject;
@@ -34,34 +34,34 @@ namespace HoodHeroUI
         void Update()
         {
 
-            //CompleatedTask(i);
+            //CompletedTask(i);
         }
 
-        public int CompleatedTask(int compleated)
+        public int CompletedTask(int completed)
         {
 
-            if (compleated == 1)
+            if (completed == 1)
             {
-                compleated++;
-                CompleatFirstText.SetActive(true);
-                StatingCompleated.SetActive(false);
-                //Debug.Log("first called +" + compleated);
-                return compleated;
+                completed++;
+                CompleteFirstText.SetActive(true);
+                StatingCompleted.SetActive(false);
+                //Debug.Log("first called +" + completed);
+                return completed;
             }
-            if (compleated == 2)
+            if (completed == 2)
             {
-                compleated++;
-                CompleatSecondText.SetActive(true);
-                CompleatFirstText.SetActive(false);
-                return compleated;
+                completed++;
+                CompleteSecondText.SetActive(true);
+                CompleteFirstText.SetActive(false);
+                return completed;
             }
-            if (compleated == 3)
+            if (completed == 3)
             {
-                compleated++;
-                CompleatThirdText.SetActive(true);
-                CompleatSecondText.SetActive(false);
+                completed++;
+                CompleteThirdText.SetActive(true);
+                CompleteSecondText.SetActive(false);
                 WinText.SetActive(true);
-                return compleated;
+                return completed;
             }
 
             return 0;
@@ -73,22 +73,22 @@ namespace HoodHeroUI
             if (lives == 1)
             {
                 lives++;
-                FirstLiveText.SetActive(true);
+                FirstLifeText.SetActive(true);
                 StartingLives.SetActive(false);
                 return lives;
             }
             if (lives == 2)
             {
                 lives++;
-                SecondLiveText.SetActive(true);
-                FirstLiveText.SetActive(false);
+                SecondLifeText.SetActive(true);
+                FirstLifeText.SetActive(false);
                 return lives;
             }
             if (lives == 3)
             {
                 lives++;
-                ThirdLiveText.SetActive(true);
-                SecondLiveText.SetActive(false);
+                ThirdLifeText.SetActive(true);
+                SecondLifeText.SetActive(false);
                 RestartText.SetActive(true);
                 return lives = 0;
             }
@@ -99,7 +99,7 @@ namespace HoodHeroUI
             OverFlow.SetActive(true);
             OldObject.SetActive(false);
         }
-        public void SceanMover(int current)
+        public void SceneMover(int current)
         {
             Scene scene = SceneManager.GetActiveScene();
             Debug.Log("Active Scene is '" + scene.name + "'.");
