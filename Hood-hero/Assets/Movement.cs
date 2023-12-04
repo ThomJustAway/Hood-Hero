@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    
-
     public CharacterController mCharacterController;
 
     private float hInput;
@@ -34,7 +32,7 @@ public class Movement : MonoBehaviour
         //int i;
         HandleInputs();
         Move();
-        mEventManager.CompleatedTask(i);
+        mEventManager.CompletedTask(i);
         mEventManager.CrossCount(noOfCross);
 
 
