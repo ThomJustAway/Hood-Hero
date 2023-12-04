@@ -12,3 +12,4 @@ public class NPC : MonoBehaviour
             trigger.StartDialogue();
     }
 }
+ 

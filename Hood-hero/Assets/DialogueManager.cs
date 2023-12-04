@@ -1,6 +1,9 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEditor.Experimental.GraphView;
+using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,13 +12,13 @@ public class DialogueManager : MonoBehaviour
     public Image actorImage;
     public Text actorName;
     public Text messageText;
-    public RectTransform backgroundBox;
+    public RectTransform backgroundBox; 
 
-    Message[] currentMessages;
+    public Message[] currentMessages;
     Actor[] currentActors; 
-    int activeMessage = 0;
-    public static bool isActive = false; 
-     
+    public int activeMessage = 0;
+    public static bool isActive = false;
+
     public void OpenDialogue(Message[] messages, Actor[] actors)
     {
         currentMessages = messages; 
@@ -27,7 +30,7 @@ public class DialogueManager : MonoBehaviour
         backgroundBox.LeanScale(Vector3.one, 0.5f).setEaseInExpo();
     } 
 
-    void DisplayMessage()
+    public void DisplayMessage()
     {
         Message messageToDisplay = currentMessages[activeMessage];
         messageText.text = messageToDisplay.message;
@@ -37,23 +40,25 @@ public class DialogueManager : MonoBehaviour
         actorImage.sprite = actorToDisplay.sprite;
 
         AnimateTextColor();
-    } 
-     
-    public void NextMessage()
-    {
-        activeMessage++; 
-        if (activeMessage < currentMessages.Length)
-        {
-            DisplayMessage(); 
-        } 
-        else
-        {
-            Debug.Log("Conversation ended!");
-            backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInExpo();
-            isActive = false;
-        }
-    } 
-     
+    }
+
+    //public void NextMessage()
+    //{ 
+    //    activeMessage++; 
+    //    GuideArrow guideArrow = GetComponent<GuideArrow>(); 
+
+    //    if (activeMessage < currentMessages.Length)
+    //    {
+    //        DisplayMessage();
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("Conversation ended!");
+    //        backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInExpo();
+    //        isActive = false;  
+    //    }
+    //}  
+
     void AnimateTextColor()
     {
         LeanTween.textAlpha(messageText.rectTransform, 0, 0);
@@ -78,11 +83,5 @@ public class DialogueManager : MonoBehaviour
         //        NextMessage();
         //    }
         //}
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            NextMessage();
-        }
     }
-} 
-
+}
