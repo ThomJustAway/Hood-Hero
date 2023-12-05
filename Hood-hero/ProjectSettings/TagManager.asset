@@ -42,3 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: One service UI
+    uniqueID: 17739939
+    locked: 0
+  - name: HUD Ui
+    uniqueID: 3945535187
+    locked: 0
