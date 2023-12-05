@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
     private float vInput;
     private float speed;
     
-    public EventManager mEventManager;
+    public EManager mEventManager;
 
     [SerializeField]
     public float mWalkSpeed = 2.5f;
@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         mCharacterController = GetComponent<CharacterController>();
-        mEventManager = GetComponent<EventManager>();
+        mEventManager = GetComponent<EManager>();
     }
 
     // Update is called once per frame

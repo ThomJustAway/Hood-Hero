@@ -48,7 +48,7 @@ public class EManager : MonoBehaviour
     {
         //CompletedTask(i);
     }
-    public int CompletedTask(int completed , int total_task)
+    public int CompletedTask(int completed )
     {
 
         if (completed == total_task/2)//50%
