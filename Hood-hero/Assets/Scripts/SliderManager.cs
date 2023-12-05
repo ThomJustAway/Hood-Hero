@@ -20,8 +20,8 @@ public class SliderManager : MonoBehaviour
 
     [Header("cross")]
     [SerializeField] private Image FirstCross;
-    [SerializeField]private Image SecondCross;
-    [SerializeField]private Image ThirdCross;
+    [SerializeField] private Image SecondCross;
+    [SerializeField] private Image ThirdCross;
     [SerializeField] private Color activatedCrossColor;
     [SerializeField] private Color unactivatedCrossColor;
 

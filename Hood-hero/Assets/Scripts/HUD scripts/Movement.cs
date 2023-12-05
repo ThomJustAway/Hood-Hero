@@ -33,8 +33,8 @@ namespace HoodHeroUI
             //int i;
             HandleInputs();
             Move();
-            mEventManager.CompletedTask(i);
-            mEventManager.CrossCount(noOfCross);
+            //mEventManager.CompletedTask(i);
+            //mEventManager.CrossCount(noOfCross);
 
 
         }

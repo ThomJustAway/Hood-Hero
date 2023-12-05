@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq.Expressions;
 using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.UI;
@@ -69,11 +70,18 @@ namespace Assets.Scripts
             if (hit.collider == null)
             {
                 isButtonAway = false;
-                selectedProblem = null; 
-                if(app.isActiveAndEnabled)
+                selectedProblem = null;
+                try
                 {
-                    //make sure to close the app if it is open
-                    app.CloseApp();
+                    if(app.isActiveAndEnabled)
+                    {
+                        //make sure to close the app if it is open
+                        app.CloseApp();
+                    }
+                }
+                catch
+                {
+
                 }
             }
             else

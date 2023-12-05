@@ -1,6 +1,7 @@
 using Assets.Problems.Scripts.Problem_script.Popup.buttons;
 using Assets.Scripts;
 using Assets.Scripts.Problem_script;
+using HoodHeroUI;
 using Problem;
 using System.Collections;
 using System.Collections.Generic;
@@ -65,7 +66,7 @@ public class OneServiceApp : MonoBehaviour
     [SerializeField] private GameObject parent;
     #endregion
 
-
+    [SerializeField] SliderManager mSliderManager;
     private void Awake()
     {
         if(instance == null)
@@ -200,11 +201,12 @@ public class OneServiceApp : MonoBehaviour
             selectedDetail.isCorrect //check if the selectedDetail is correct
             )
         {//if the player selected the problem correctly
+            mSliderManager.CompleteTask();
             ProblemFound.IsSolve();
         }
         else
         {
-            //send error mistake
+            mSliderManager.ActivatedError();
         }
         CloseApp();
     }
