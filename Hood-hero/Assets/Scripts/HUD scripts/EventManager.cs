@@ -24,7 +24,7 @@ namespace HoodHeroUI
         public GameObject CompleteThirdText;
         public GameObject WinText;
 
-        int completed;
+        [HideInInspector] public int completed = 0;
 
         public GameObject OverFlow;
         public GameObject OldObject;

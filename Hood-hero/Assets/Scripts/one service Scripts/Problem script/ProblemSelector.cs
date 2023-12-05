@@ -5,6 +5,7 @@ using UnityEngine;
 using Problem;
 using UnityEngine.UI;
 using System;
+using HoodHeroUI;
 
 public class ProblemSelector : MonoBehaviour 
 {
@@ -15,6 +16,7 @@ public class ProblemSelector : MonoBehaviour
 
     [SerializeField] private bool isSeriousProblem = false;
     public bool IsSeriousProblem { get { return isSeriousProblem; } }
+
     [SerializeField] private float timer = 0.0f;
     #region images
     [Header("Image detail")]
@@ -30,7 +32,7 @@ public class ProblemSelector : MonoBehaviour
     public void IsSolve()
     {
         //send event
-        enabled = false; //make it disapper
+        enabled = false; //make it disappear
         gameObject.SetActive(false);
     }
 }
