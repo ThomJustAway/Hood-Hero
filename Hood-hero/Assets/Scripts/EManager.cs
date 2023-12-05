@@ -82,28 +82,26 @@ public class EManager : MonoBehaviour
 
         return completed;
     }
-    public int CrossCount(int lives)
+    public int CrossCount(int lifes)
     {
-
-
-        if (lives == 1)
+        if (lifes == 1)
         {
-            lives++;
+            lifes++;
             FirstCross.color = CrossColor;
-            return lives;
+            return lifes;
         }
-        if (lives == 2)
+        if (lifes == 2)
         {
-            lives++;
+            lifes++;
             SecondCross.color = CrossColor;
-            return lives;
+            return lifes;
         }
-        if (lives == 3)
+        if (lifes == 3)
         {
-            lives++;
+            lifes++;
             ThirdCross.color = CrossColor;
             //RestartText.enabled = true;
-            return lives = 0;
+            return lifes = 0;
         }
         return 1;
     }
