@@ -7,13 +7,45 @@ namespace HoodHeroUI
 {
     public class SliderController : MonoBehaviour
     {
-        int progress = 0;
+        int progress;
         public Slider slider;
+        public float fillSpeed = 1f;
 
-        public void UpdateProgress()
+        public void UpdateProgress(int completed, int total_Task)  //5/7.5/10
         {
-            progress++;
-            slider.value = progress;
+            if (completed == total_Task / 2)
+            {
+                progress = 5;
+
+                if (slider.value < progress)
+                {
+
+                    slider.value += fillSpeed * Time.deltaTime;
+
+                }
+            }
+            if (completed == total_Task * 0.7)
+            {
+                progress = 7;
+
+                if (slider.value < progress)
+                {
+
+                    slider.value += fillSpeed * Time.deltaTime;
+
+                }
+            }
+            if (completed == total_Task)
+            {
+                progress = 10;
+
+                if (slider.value < progress)
+                {
+
+                    slider.value += fillSpeed * Time.deltaTime;
+
+                }
+            }
         }
     }
 
