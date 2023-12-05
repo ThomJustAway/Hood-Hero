@@ -609,19 +609,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 549636bad82a20543bb59acd89f9c610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountOfProblemText: {fileID: 0}
-  FirstStar: {fileID: 0}
-  SecondStar: {fileID: 0}
-  ThirdStar: {fileID: 0}
-  activatedStarColor: {r: 0, g: 0, b: 0, a: 0}
-  unactivatedStarColor: {r: 0, g: 0, b: 0, a: 0}
-  FirstCross: {fileID: 0}
-  SecondCross: {fileID: 0}
-  ThirdCross: {fileID: 0}
-  activatedCrossColor: {r: 0, g: 0, b: 0, a: 0}
-  unactivatedCrossColor: {r: 0, g: 0, b: 0, a: 0}
-  totalTask: 0
-  mSlider: {fileID: 0}
 --- !u!1 &214009924
 GameObject:
   m_ObjectHideFlags: 0
@@ -6685,7 +6672,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -964, y: -266.1128}
+  m_AnchoredPosition: {x: -963, y: -241}
   m_SizeDelta: {x: -1980, y: -780}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &526103939
@@ -6928,7 +6915,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -840.364, y: -391}
+  m_AnchoredPosition: {x: -837, y: -376}
   m_SizeDelta: {x: -1980, y: -780}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &551675897
@@ -7906,7 +7893,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -838, y: -142}
+  m_AnchoredPosition: {x: -838, y: -107}
   m_SizeDelta: {x: -1980, y: -780}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &795844665
@@ -11042,7 +11029,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -726, y: -277}
+  m_AnchoredPosition: {x: -714, y: -240}
   m_SizeDelta: {x: -1980, y: -780}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1596602541
