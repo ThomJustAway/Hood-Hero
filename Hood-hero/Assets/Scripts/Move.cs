@@ -8,38 +8,28 @@ using UnityEngine.EventSystems;
 public class Move : MonoBehaviour
 {
     
-    public EManager mEManager;
+    public SliderManager mEManager;
     public Rigidbody2D rb;
-    //public Sprite playerSprite;
     public Animator player;
-
-
-
 
     [SerializeField]
     public float mWalkSpeed = 10f;
-    public int compleated = 1;
-    public int lives = 1;
-    public int total_task = 10;
-    // Start is called before the first frame update
+
 
     
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        mEManager = GetComponent<EManager>();
+        mEManager = GetComponent<SliderManager>();
         //playerSprite = GetComponent<Sprite>();
     }
     
     // Update is called once per frame
     void Update()
     {
-        mEManager.CompleatedTask(compleated , total_task);
-        mEManager.CrossCount(lives);
+        //why call this here????
+        //mEManager.CompleteTask();
     }
-   
-
-   
 
     public void Stop()
     {
