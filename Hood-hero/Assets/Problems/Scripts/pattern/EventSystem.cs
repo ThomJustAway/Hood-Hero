@@ -3,32 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Problem{
-    public class EventSystem : MonoBehaviour
+public class EventSystem : MonoBehaviour
+{
+    public static EventSystem instance { get; private set; }
+    private Dictionary<string, Action> listOfEvents = new Dictionary<string, Action>();
+    [SerializeField] private string[] eventName;
+    private void Awake()
     {
-        public static EventSystem instance { get; private set; }
-        private Dictionary<string, Action> listOfEvents = new Dictionary<string, Action>();
-        [SerializeField] private string[] eventName;
-        private void Awake()
+        if(instance == null)
         {
-            if(instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                print("instance");
-                Destroy(instance);
-            }
+            instance = this;
         }
-
-        //private void Start()
-        //{
-        //    for(int i = 0; i < eventName.Length; i++)
-        //    {
-        //        listOfEvents.Add(eventName[i], new Action<>());
-        //    }
-        //}
+        else
+        {
+            print("instance");
+            Destroy(instance);
+        }
     }
 
+    //private void Start()
+    //{
+    //    for(int i = 0; i < eventName.Length; i++)
+    //    {
+    //        listOfEvents.Add(eventName[i], new Action<>());
+    //    }
+    //}
 }

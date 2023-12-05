@@ -9,9 +9,9 @@ public class SliderController : MonoBehaviour
     public Slider slider;
     public float fillSpeed = 1f;
 
-    public void UpdateProgress(int completed, int total_Task)  //5/7.5/10
+    public void UpdateProgress(int compelted, int total_Taask)  //5/7.5/10
     {
-        if (completed == total_Task / 2)
+        if (compelted == total_Taask / 2)
         {
             progress = 5;
 
@@ -22,7 +22,7 @@ public class SliderController : MonoBehaviour
         
             }
         }
-        if (completed == total_Task * 0.7)
+        if (compelted == total_Taask * 0.7)
         {
             progress = 7;
 
@@ -33,7 +33,7 @@ public class SliderController : MonoBehaviour
 
             }
         }
-        if (completed == total_Task)
+        if (compelted == total_Taask)
         {
             progress = 10;
 
