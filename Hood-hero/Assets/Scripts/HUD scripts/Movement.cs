@@ -30,8 +30,7 @@ namespace HoodHeroUI
         // Update is called once per frame
         void Update()
         {
-            //int i;
-            HandleInputs();
+            //HandleInputs();
             Move();
             //mEventManager.CompletedTask(i);
             //mEventManager.CrossCount(noOfCross);
@@ -39,22 +38,22 @@ namespace HoodHeroUI
 
         }
 
-        private void HandleInputs()
-        {
-            // We shall handle our inputs here.
-            hInput = Input.GetAxis("Horizontal");
-            vInput = Input.GetAxis("Vertical");
+        //private void HandleInputs()
+        //{
+        //    // We shall handle our inputs here.
+        //    hInput = Input.GetAxis("Horizontal");
+        //    vInput = Input.GetAxis("Vertical");
         
 
 
-            speed = mWalkSpeed;
+        //    speed = mWalkSpeed;
 
-           // if (Input.GetKey(KeyCode.LeftShift))
-           // {
-              //  speed = mWalkSpeed * 2.0f;
-            //}
+        //   // if (Input.GetKey(KeyCode.LeftShift))
+        //   // {
+        //      //  speed = mWalkSpeed * 2.0f;
+        //    //}
        
-        }
+        //}
 
         private void Move()
         {
@@ -63,7 +62,7 @@ namespace HoodHeroUI
 
         
 
-            Vector3 move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"),0 );
+            Vector3 move = new Vector3(h, v,0 );
 
             mCharacterController.Move(move * Time.deltaTime * mWalkSpeed);
         }

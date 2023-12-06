@@ -15,17 +15,17 @@ public class DialogueManager : MonoBehaviour
     public RectTransform backgroundBox; 
 
     public Message[] currentMessages;
-    Actor[] currentActors; 
+    //Actor[] currentActors; 
     public int activeMessage = 0;
     public static bool isActive = false;
 
-    public void OpenDialogue(Message[] messages, Actor[] actors)
+    public void OpenDialogue(Message[] messages)
     {
         currentMessages = messages; 
-        currentActors = actors; 
+        //currentActors = actors; 
         activeMessage = 0; 
         isActive = true;
-        Debug.Log("Start conversation! Loaded messages: " + messages.Length); 
+        //Debug.Log("Start conversation! Loaded messages: " + messages.Length); 
         DisplayMessage(); 
         backgroundBox.LeanScale(Vector3.one, 0.5f).setEaseInExpo();
     } 
@@ -35,9 +35,8 @@ public class DialogueManager : MonoBehaviour
         Message messageToDisplay = currentMessages[activeMessage];
         messageText.text = messageToDisplay.message;
 
-        Actor actorToDisplay = currentActors[messageToDisplay.actorId];
-        actorName.text = actorToDisplay.name;
-        actorImage.sprite = actorToDisplay.sprite;
+        actorName.text = messageToDisplay.name;
+        actorImage.sprite = messageToDisplay.sprite;
 
         AnimateTextColor();
     }

@@ -20,7 +20,7 @@ public class GuideArrow : MonoBehaviour
         if (arrow != null && arrowInstance == null)
         {
             Vector3 direction = problem.transform.position - transform.position;
-            float angle = Vector3.Angle(transform.position, problem.transform.position);
+            float angle = Vector3.Angle(Vector3.up, direction);
             Vector3 arrowPos = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
 
             arrowInstance = Instantiate(arrow, arrowPos, Quaternion.identity);
@@ -41,7 +41,6 @@ public class GuideArrow : MonoBehaviour
             }
             else
             {
-                Debug.Log("Conversation ended!");
                 dialogueManager.backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInExpo();
                 DialogueManager.isActive = false;
                 CreateArrow();
