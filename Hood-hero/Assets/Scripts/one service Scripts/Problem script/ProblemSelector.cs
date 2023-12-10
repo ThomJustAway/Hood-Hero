@@ -9,24 +9,23 @@ using HoodHeroUI;
 
 public class ProblemSelector : MonoBehaviour 
 {
-    [SerializeField] private Problem.MainProblem mainProblem = Problem.MainProblem.Cleanliness;
-    [SerializeField] private Problem.SubProblem subProblem = Problem.SubProblem.DirtyPublicAreas;
+    [SerializeField] private MainProblem mainProblem = MainProblem.Cleanliness;
+    [SerializeField] private SubProblem subProblem = SubProblem.DirtyPublicAreas;
     public MainProblem MainProblem { get { return mainProblem; } }
     public SubProblem SubProblem { get { return subProblem; } }
 
     [SerializeField] private bool isSeriousProblem = false;
     public bool IsSeriousProblem { get { return isSeriousProblem; } }
 
-    [SerializeField] private float timer = 0.0f;
+    [SerializeField]  private int timer = 0; //how many second before the trigger occur
+    public int CountDown { get { return timer; } }
     #region images
-    [Header("Image detail")]
     [SerializeField] private Sprite closeUpImage;
     [SerializeField] private Sprite farAwayImage;
     [SerializeField] private DetailOfTheProblem[] details;
     public Sprite CloseupImage { get { return closeUpImage; } }
     public Sprite FarAwayImage { get { return farAwayImage; } }
     public DetailOfTheProblem[] Details { get {  return details; } }
-
     #endregion
 
     public void IsSolve()

@@ -135,14 +135,21 @@ public class OneServiceApp : MonoBehaviour
     {
         if (!HasCreatedDetailButton)
         {//so if have not created the detail button
-            var foundProblem = ProblemFinder.Instance.selectedProblem;
-            foreach(var detail in foundProblem.Details)
+            try
             {
-                GameObject button = Instantiate(DetailCategoryButton.gameObject , DetailCategoryContainer.transform);
-                button.GetComponent<DetailCategoryButton>().Init(detail);
-                //create the button
+                var foundProblem = ProblemFinder.Instance.selectedProblem;
+                foreach(var detail in foundProblem.Details)
+                {
+                    GameObject button = Instantiate(DetailCategoryButton.gameObject , DetailCategoryContainer.transform);
+                    button.GetComponent<DetailCategoryButton>().Init(detail);
+                    //create the button
+                }
+                HasCreatedDetailButton = true; //make sure to not call this function again
             }
-            HasCreatedDetailButton = true; //make sure to not call this function again
+            catch
+            {
+                //do nothing here 
+            }
         }
     }
 

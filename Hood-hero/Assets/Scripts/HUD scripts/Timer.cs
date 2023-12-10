@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 namespace HoodHeroUI{
     public class Timer : MonoBehaviour
@@ -12,15 +13,20 @@ namespace HoodHeroUI{
         public int Duration;
 
         private int remainingDuration;
+        private ProblemSelector[] seriousProblems;
+
 
         private void Start()
         {
-            Being(Duration);
+            //does checking for time also in charge of the UI
+            seriousProblems = FindObjectsOfType<ProblemSelector>()
+                .Where(problem => problem.IsSeriousProblem).ToArray();
+            Begin();
         }
 
-        private void Being(int second)
+        private void Begin()
         {
-            remainingDuration = second;
+            remainingDuration = Duration;
             StartCoroutine(UpdateTimer());
         }
 
@@ -30,13 +36,35 @@ namespace HoodHeroUI{
             {
                 uiText.text = $"{remainingDuration / 60:00} : {remainingDuration % 60:00}";
                 remainingDuration--;
+                CheckProblem();
                 yield return new WaitForSeconds(1f);
             }
             OnEnd();
         }
 
+        //look here
+        private void CheckProblem()
+        {
+            List<ProblemSelector> newArray = new List<ProblemSelector>();
+            foreach(ProblemSelector problem in seriousProblems)
+            {
+                int timeStamp = Duration - problem.CountDown;
+                if (timeStamp > remainingDuration)
+                { //that mean the problem has become a serious problem
+                    Debug.Log("serious problem activated");
+                    //activate error event here!!
+                }
+                else
+                {
+                    newArray.Add(problem);
+                }
+            }
+            seriousProblems = newArray.ToArray();   
+        }
+
         private void OnEnd()
         {
+            //add event for end function
             print("End");
         }
     }
