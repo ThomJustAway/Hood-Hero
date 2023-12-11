@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using pattern;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -80,7 +81,8 @@ public class DialogueManager : MonoBehaviour
     {
         currentMessages = null;
         //play the background fade
-        backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInExpo(); 
+        backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInExpo();
+        EventManager.instance.AlertListeners(TypeOfEvent.DialogEndEvent);
     }
 
     void AnimateTextColor()

@@ -2,6 +2,7 @@ using Assets.Problems.Scripts.Problem_script.Popup.buttons;
 using Assets.Scripts;
 using Assets.Scripts.Problem_script;
 using HoodHeroUI;
+using pattern;
 using Problem;
 using System.Collections;
 using System.Collections.Generic;
@@ -193,8 +194,7 @@ public class OneServiceApp : MonoBehaviour
 
         ChangingActiveOfImage(false); //for the removing all changes to the image
         DestroyAllDetailButton(); // to remove the old detail button and make new one for future use.
-
-        parent.SetActive(false);
+        parent.SetActive(false); //dont show the ui in game scene
         
     }
 
@@ -215,6 +215,9 @@ public class OneServiceApp : MonoBehaviour
         {
             mSliderManager.ActivatedError();
         }
+
+        EventManager.instance.AlertScoringListener(ProblemFound);
+
         CloseApp();
     }
     private void ResetValues()

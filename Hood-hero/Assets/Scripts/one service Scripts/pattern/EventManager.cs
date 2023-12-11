@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace pattern
@@ -29,20 +30,30 @@ namespace pattern
             {//create a list for each event
                 dictionaryOfEvents.Add(eventName, new List<Action>());
             }
-            scoreEventEvent = new List<Action<ProblemSelector>>();
+            scoreEvents = new List<Action<ProblemSelector>>();
         }
 
         #region scoring special event
-        private List<Action<ProblemSelector>> scoreEventEvent; //special already listeners who need the problem selector
+        private List<Action<ProblemSelector>> scoreEvents; //special already listeners who need the problem selector
         public void AddScoringListener(Action<ProblemSelector> callback)
         {
-            scoreEventEvent.Add(callback);
+            scoreEvents.Add(callback);
         }
         public void RemovingScoringListener(Action<ProblemSelector> callback)
         {
-            scoreEventEvent.Remove(callback); //remove the callback
+            scoreEvents.Remove(callback); //remove the callback
+            print($"score listener {scoreEvents.Count}");
         }
 
+        public void AlertScoringListener(ProblemSelector problemSolve)
+        {
+            var copyListeners = new List<Action<ProblemSelector>>(scoreEvents);
+            foreach(var action  in copyListeners)
+            {
+                action.Invoke(problemSolve);
+            }
+        }
+        
         #endregion
 
         public void AddListener(TypeOfEvent eventName, Action callback)
@@ -60,7 +71,11 @@ namespace pattern
         public void AlertListeners(TypeOfEvent eventName)
         {
             var list = dictionaryOfEvents[eventName];
-            foreach (var action in list)
+            //copy the list so that if any listener is deleted in 
+            //the current list of event, it will still continue
+            //calling out the listeners until the function ends
+            var copyList = new List<Action>(list); 
+            foreach (var action in copyList)
             {
                 action.Invoke();
             }
@@ -77,9 +92,9 @@ namespace pattern
 
     public enum TypeOfEvent
     {//add the relevant events here
-        ScoreEvent,
         MistakeEvent,
         LoseEvent,
         WinEvent,
+        DialogEndEvent,
     }
 }
