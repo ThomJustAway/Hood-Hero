@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
+using pattern;
 
 namespace HoodHeroUI{
     public class Timer : MonoBehaviour
@@ -65,8 +66,7 @@ namespace HoodHeroUI{
         private void OnEnd()
         {
             //add event for end function
-            print("End");
+            EventManager.instance.AlertListeners(TypeOfEvent.LoseEvent);
         }
     }
-
 }

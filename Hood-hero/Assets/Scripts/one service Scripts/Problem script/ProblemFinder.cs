@@ -13,7 +13,8 @@ namespace Assets.Scripts
         [SerializeField] private GameObject button;
         [SerializeField] private GameObject buttonMoveLocation;
         [SerializeField] private float distanceToSense = 1f;
-        private bool isButtonAway = true;
+        [SerializeField] private LayerMask defaultLayerMask;
+        private bool isButtonAway = false;
         private Vector3 buttonInitialPosition;
         private Vector3 buttonMoveToPosition;
 
@@ -64,31 +65,49 @@ namespace Assets.Scripts
         private void CheckingProblem()
         {
             // add extra perimeter here to only do raycasting on problems only
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up, distanceToSense);
+            //will need to change this transform.up later on
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, 
+                transform.up, 
+                distanceToSense,
+                defaultLayerMask,
+                - 3f,
+                3f
+                ); 
             Debug.DrawRay(transform.position, transform.up * distanceToSense, Color.green);
 
             if (hit.collider == null)
             {
-                isButtonAway = false;
-                selectedProblem = null;
-                try
-                {
-                    if(app.isActiveAndEnabled)
-                    {
-                        //make sure to close the app if it is open
-                        app.CloseApp();
-                    }
-                }
-                catch
-                {
-
-                }
+                DeactivatedApp();
             }
             else
-            {
-                isButtonAway = true;
-                selectedProblem = hit.collider.GetComponent<ProblemSelector>();
+            {//if got hit object
+                ActivateApp(hit);
             }
+        }
+
+        private void ActivateApp(RaycastHit2D hit)
+        {
+            if (hit.collider.TryGetComponent<ProblemSelector>(out var problemSelector))
+            {//hit a problem
+                print(problemSelector.ToString());
+                isButtonAway = true;
+                selectedProblem = problemSelector;
+            }
+        }
+
+        private void DeactivatedApp()
+        {
+            isButtonAway = false;
+            selectedProblem = null;
+            try
+            {
+                if (app.isActiveAndEnabled)
+                {
+                    //make sure to close the app if it is open
+                    app.CloseApp();
+                }
+            }
+            catch { }//ignore the error
         }
     }
 }

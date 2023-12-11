@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
-    public DialogueTrigger trigger;
+    //will start message
+    public Message[] messages;
+    [Header("Hints")]
+    public GameObject problem;
+    //add something here to trigger the message instead of using on 
+    //trigger enter
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.gameObject.CompareTag("Player") == true)
-            trigger.StartDialogue();
+        DialogueManager.Instance.OpenDialogueSession(messages);
     }
+
+
 }
  
