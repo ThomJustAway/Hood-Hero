@@ -15,7 +15,5 @@ public class NPC : MonoBehaviour
     {
         DialogueManager.Instance.OpenDialogueSession(messages);
     }
-
-
 }
  

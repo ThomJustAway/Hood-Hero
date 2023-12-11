@@ -18,9 +18,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] public RectTransform backgroundBox; 
 
     private Message[] currentMessages;
-    //Actor[] currentActors; 
-    public int activeMessage = 0;
-    //private bool isActive = false;
+    private int activeMessage = 0;
+
+
     void Start()
     {
         if(Instance == null)

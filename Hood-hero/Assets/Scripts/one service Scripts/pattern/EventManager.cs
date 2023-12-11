@@ -9,6 +9,7 @@ namespace pattern
     {
         public static EventManager instance { get; private set; }
         private Dictionary<TypeOfEvent, List<Action>> dictionaryOfEvents = new Dictionary<TypeOfEvent, List<Action>>();
+
         private void Awake()
         {
             if(instance == null)
@@ -28,7 +29,21 @@ namespace pattern
             {//create a list for each event
                 dictionaryOfEvents.Add(eventName, new List<Action>());
             }
+            scoreEventEvent = new List<Action<ProblemSelector>>();
         }
+
+        #region scoring special event
+        private List<Action<ProblemSelector>> scoreEventEvent; //special already listeners who need the problem selector
+        public void AddScoringListener(Action<ProblemSelector> callback)
+        {
+            scoreEventEvent.Add(callback);
+        }
+        public void RemovingScoringListener(Action<ProblemSelector> callback)
+        {
+            scoreEventEvent.Remove(callback); //remove the callback
+        }
+
+        #endregion
 
         public void AddListener(TypeOfEvent eventName, Action callback)
         {
@@ -51,6 +66,7 @@ namespace pattern
             }
         }
 
+        //only call this if U think u need to reset the entire event manager
         public void ResetEventManager()
         {
             dictionaryOfEvents.Clear();
