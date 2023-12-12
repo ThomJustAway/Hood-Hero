@@ -5,9 +5,12 @@ using TMPro;
 using System;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using pattern;
 
 public class SliderManager : MonoBehaviour
 {
+
+    //change this later on
     [SerializeField]private TextMeshProUGUI amountOfProblemText;
 
     [Header("stars")]
@@ -39,13 +42,16 @@ public class SliderManager : MonoBehaviour
         mSlider.maxValue = totalTask;
         mSlider.value = 0;
         SetSliderUI();
+
+        //use the event manager like this and evoke it in any class pertaining that wants to evoke the listener
+        EventManager.instance.AddListener(TypeOfEvent.MistakeEvent, ActivatedError);
+        EventManager.instance.AddScoringListener(CompleteTask);
     }
 
-
-
     // call this function once task is completed
-    public void CompleteTask() 
+    public void CompleteTask(ProblemSelector problem) 
     {
+        //use the problem here
         completedTask++; //finish a completed task
 
         if (completedTask == totalTask)//100%
@@ -62,7 +68,6 @@ public class SliderManager : MonoBehaviour
         }
 
         SetSliderUI();
-
     }
 
     //call this function if the player have error
@@ -73,6 +78,8 @@ public class SliderManager : MonoBehaviour
         {
             //add game over event here
             ThirdCross.color = activatedCrossColor;
+            //make sure the other listeners know what to do
+            EventManager.instance.AlertListeners(TypeOfEvent.LoseEvent);
         }
         else if(cross == 2)
         {
@@ -95,7 +102,6 @@ public class SliderManager : MonoBehaviour
     public void SceneMover(int current)
     {
         Scene scene = SceneManager.GetActiveScene();
-        Debug.Log("Active Scene is '" + scene.name + "'.");
         UnityEngine.SceneManagement.SceneManager.LoadScene(current++);
     }
 }

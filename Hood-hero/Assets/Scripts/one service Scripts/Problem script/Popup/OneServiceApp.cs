@@ -67,7 +67,7 @@ public class OneServiceApp : MonoBehaviour
     [SerializeField] private GameObject parent;
     #endregion
 
-    [SerializeField] SliderManager mSliderManager;
+    //[SerializeField] SliderManager mSliderManager;
     private void Awake()
     {
         if(instance == null)
@@ -208,15 +208,16 @@ public class OneServiceApp : MonoBehaviour
             selectedDetail.isCorrect //check if the selectedDetail is correct
             )
         {//if the player selected the problem correctly
-            mSliderManager.CompleteTask();
+            //mSliderManager.CompleteTask();
+            
+            EventManager.instance.AlertScoringListener(ProblemFound);
             ProblemFound.IsSolve();
         }
         else
         {
-            mSliderManager.ActivatedError();
+            EventManager.instance.AlertListeners(TypeOfEvent.MistakeEvent);
         }
 
-        EventManager.instance.AlertScoringListener(ProblemFound);
 
         CloseApp();
     }
