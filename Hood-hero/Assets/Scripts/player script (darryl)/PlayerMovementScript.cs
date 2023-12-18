@@ -47,7 +47,7 @@ namespace movement{
             else if (Input.GetKeyDown(KeyCode.S)) Move(DirectionType.Down);
             else if (Input.GetKeyDown(KeyCode.D)) Move(DirectionType.Right);
         }
-        public void Move(DirectionType TypeOfMovement)
+        private void Move(DirectionType TypeOfMovement)
         {
             if (TypeOfMovement == DirectionType.None) {
                 UnityEngine.Debug.LogError("cant have movement None!");
@@ -148,9 +148,31 @@ namespace movement{
             }
 
         }
+
+
+        public void MoveUp()
+        {
+            Move(DirectionType.Up);
+        }
+
+        public void MoveDown()
+        {
+            Move(DirectionType.Down);
+        }
+
+        public void MoveLeft()
+        {
+            Move(DirectionType.Left);
+        }
+
+        public void MoveRight()
+        {
+            Move(DirectionType.Right);
+        }
+
         #endregion
     }
-
+    [System.Serializable]
     public enum DirectionType
     {
         Right,

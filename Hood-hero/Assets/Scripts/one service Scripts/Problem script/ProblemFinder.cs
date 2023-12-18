@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using movement;
+using System.Collections;
 using System.Linq.Expressions;
 using UnityEditor.Build.Content;
 using UnityEngine;
@@ -14,6 +15,9 @@ namespace Assets.Scripts
         [SerializeField] private GameObject buttonMoveLocation;
         [SerializeField] private float distanceToSense = 1f;
         [SerializeField] private LayerMask defaultLayerMask;
+
+        private PlayerMovementScript playerMovement;
+
         private bool isButtonAway = false;
         private Vector3 buttonInitialPosition;
         private Vector3 buttonMoveToPosition;
@@ -39,7 +43,7 @@ namespace Assets.Scripts
             buttonInitialPosition = button.transform.position;
             //Debug.Log("Initial Position = " + buttonInitialPosition);
             buttonMoveToPosition = buttonMoveLocation.transform.position;
-
+            playerMovement = GetComponent<PlayerMovementScript>();  
             app = OneServiceApp.instance;
         }
 
@@ -66,8 +70,29 @@ namespace Assets.Scripts
         {
             // add extra perimeter here to only do raycasting on problems only
             //will need to change this transform.up later on
+            Vector3 direction = Vector3.down;
+
+            switch (playerMovement.playerFacing)
+            {
+                case DirectionType.Left:
+                    direction = Vector3.left; 
+                    break;
+                case DirectionType.Right:
+                    direction = Vector3.right;
+                    break;
+                case DirectionType.Up:
+                    direction = Vector3.up;
+                    break;
+                case DirectionType.Down:
+                    direction = Vector3.down;
+                    break;
+                default:
+                    break;
+            }
+
+
             RaycastHit2D hit = Physics2D.Raycast(transform.position, 
-                transform.up, 
+                direction, 
                 distanceToSense,
                 defaultLayerMask,
                 - 3f,
