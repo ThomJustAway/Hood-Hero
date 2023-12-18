@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b8f8e29b9fa8078449abb5a4bb75fa33
+guid: 2529f58c0f0f4784d925363eac539680
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -717,7 +717,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -40, y: 0}
+        - {x: -40, y: -48}
+        - {x: 40, y: -48}
+        - {x: 40, y: 0}
       tessellationDetail: 0
       bones: []
       spriteID: 8d12f8b8db694f450800000000000000
@@ -1557,7 +1561,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -4.5, y: -9}
+        - {x: -4.5, y: -16}
+        - {x: 4.5, y: -16}
+        - {x: 4.5, y: -9}
       tessellationDetail: 0
       bones: []
       spriteID: ed523e706d0bf0480800000000000000
@@ -1599,7 +1607,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -4.5, y: -9}
+        - {x: -4.5, y: -16}
+        - {x: 4.5, y: -16}
+        - {x: 4.5, y: -9}
       tessellationDetail: 0
       bones: []
       spriteID: cf44d4ed8ad94f520800000000000000
@@ -1620,7 +1632,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -4.5, y: -8.5}
+        - {x: -4.5, y: -15.5}
+        - {x: 4.5, y: -15.5}
+        - {x: 4.5, y: -8.5}
       tessellationDetail: 0
       bones: []
       spriteID: 44ab4737af288ee90800000000000000
@@ -1788,7 +1804,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: -4}
+        - {x: -8, y: -15}
+        - {x: 8, y: -15}
+        - {x: 8, y: -4}
       tessellationDetail: 0
       bones: []
       spriteID: aeb6db0c25904dbf0800000000000000
@@ -1809,7 +1829,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -9, y: -6.5}
+        - {x: -9, y: -13.5}
+        - {x: 9, y: -13.5}
+        - {x: 9, y: -6.5}
       tessellationDetail: 0
       bones: []
       spriteID: 449d0d623528236f0800000000000000
@@ -4191,27 +4215,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: crack pavement
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 272
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fafcd08e7820cb24e9ad582cdb9bdeae
-      internalID: 1367459647
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -4392,7 +4395,6 @@ TextureImporter:
       CP_V1.0.4_97: -6551009695827532754
       CP_V1.0.4_98: 2407429496607507848
       CP_V1.0.4_99: -4538600552485432454
-      crack pavement: 1367459647
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
