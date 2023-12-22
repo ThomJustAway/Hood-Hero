@@ -53,7 +53,40 @@ namespace pattern
                 action.Invoke(problemSolve);
             }
         }
-        
+
+        #endregion
+
+        #region timing event
+
+        private List<Action<int>> timingEvent = new List<Action<int>>(); //for time
+
+        //what is pass in the int is the amount of time that has pass after the game starts
+        public void AddTimingListener(Action<int> callback)
+        {
+            timingEvent.Add(callback);
+        }
+
+        public void RemoveTimingListener(Action<int> callback)
+        {
+            timingEvent.Remove(callback);
+        }
+
+        public void AlertTimingListener(int timePass)
+        {
+            var copyList = new List<Action<int>>(timingEvent) ;
+
+            foreach (var action in copyList)
+            {
+                
+                action.Invoke(timePass);
+            }
+        }
+
+        public void RemoveAllTimingListener()
+        {
+            timingEvent = new List<Action<int>>();
+        }
+
         #endregion
 
         public void AddListener(TypeOfEvent eventName, Action callback)

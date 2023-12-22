@@ -25,11 +25,15 @@ namespace movement{
         [SerializeField] private AnimatorOverrideController spriteDown;
         #endregion
         public DirectionType playerFacing { get; private set; } = DirectionType.None;
-
+        private float zIndex = 0;
         void Start()
         {
             cellPlayerIsIn = gridForReference.WorldToCell(transform.position);
             transform.position = gridForReference.GetCellCenterWorld(cellPlayerIsIn);
+            zIndex = -1.89f; //change this later
+            Vector3 currentposition = transform.position;
+            transform.position = new Vector3(currentposition.x, currentposition.y, zIndex);
+            
         }
 
         private void Update()
@@ -47,6 +51,8 @@ namespace movement{
             else if (Input.GetKeyDown(KeyCode.S)) Move(DirectionType.Down);
             else if (Input.GetKeyDown(KeyCode.D)) Move(DirectionType.Right);
         }
+
+
         private void Move(DirectionType TypeOfMovement)
         {
             if (TypeOfMovement == DirectionType.None) {
@@ -83,6 +89,9 @@ namespace movement{
         {
             Vector3 currentPosition = gridForReference.GetCellCenterWorld(cellPlayerIsIn);
             Vector3 nextPositionToMove = gridForReference.GetCellCenterWorld(nextCellToMove);
+
+            currentPosition.z = zIndex;
+            nextPositionToMove.z = zIndex;
             //calculate the next position of for the character to move to
 
             float elapseTime = 0f;
