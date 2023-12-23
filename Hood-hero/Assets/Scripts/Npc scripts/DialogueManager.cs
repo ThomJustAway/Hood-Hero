@@ -17,10 +17,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] public Text messageText;
     [SerializeField] public RectTransform backgroundBox; 
 
-    private Message[] currentMessages;
-    //Actor[] currentActors; 
+    public Message[] currentMessages; 
     public int activeMessage = 0;
-    //private bool isActive = false;
+    public bool isActive = false;
     void Start()
     {
         if(Instance == null)
@@ -29,7 +28,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            print("cant have more than one instance of dialogue manager");
+            print("Can't have more than one instance of dialogue manager");
             Destroy(Instance);  
         }
         backgroundBox.transform.localScale = Vector3.zero;
@@ -46,11 +45,11 @@ public class DialogueManager : MonoBehaviour
     }
     public void OpenDialogueSession(Message[] messages)
     {
-        currentMessages = messages; 
-        activeMessage = 0; 
-        DisplayMessage(); 
+        currentMessages = messages;
+        activeMessage = 0;
+        DisplayMessage();
         backgroundBox.LeanScale(Vector3.one, 0.5f).setEaseInExpo();
-    } 
+    }
 
     public void DisplayMessage()
     {
@@ -63,8 +62,8 @@ public class DialogueManager : MonoBehaviour
         AnimateTextColor();
     }
 
-    private void NextMessage()
-    {        
+    public void NextMessage()
+    {
         activeMessage++;
         if(activeMessage < currentMessages.Length)
         {
@@ -76,11 +75,30 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    public void ResetDialogue()
+    {
+        activeMessage = 0;
+        currentMessages = null;
+        isActive = false;
+    }
+
     private void CloseDialogSession()
     {
-        currentMessages = null;
-        //play the background fade
-        backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInExpo(); 
+        currentMessages = null; 
+
+        // Play the background fade
+        backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInExpo();
+
+        // Access ActivateGuide script to signal the end of dialogue
+        ActivateGuide activateGuide = GameObject.FindGameObjectWithTag("Player").GetComponent<ActivateGuide>();
+        if (activateGuide != null)
+        {
+            activateGuide.DialogueComplete(); // Signal the end of dialogue 
+        }
+        else
+        {
+            Debug.LogError("Script not found!");
+        }
     }
 
     void AnimateTextColor()
