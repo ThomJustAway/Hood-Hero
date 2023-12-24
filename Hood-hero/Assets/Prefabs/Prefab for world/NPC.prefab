@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1322484026715874252}
   - component: {fileID: 2487953874012817957}
   - component: {fileID: 1923378267425014086}
-  - component: {fileID: 3472351883006569877}
   m_Layer: 6
   m_Name: NPC
   m_TagString: Untagged
@@ -105,15 +104,4 @@ MonoBehaviour:
   - name: Luna
     message: Hello
     sprite: {fileID: 21300000, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
---- !u!114 &3472351883006569877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7047386785346119543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e4d6bf0b8d6dd440a659d11cbb73534, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  problem: {fileID: 0}

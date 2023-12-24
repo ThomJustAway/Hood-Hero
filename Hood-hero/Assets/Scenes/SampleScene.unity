@@ -510,8 +510,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e198c1ed47626d499cc255a847fa795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiText: {fileID: 122007250}
-  Duration: 260
 --- !u!1 &181421738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,7 +1006,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2302994a5e53d14f845de3506efb132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 350157645}
+  messages: []
+  problem: {fileID: 0}
 --- !u!114 &350157645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1021,16 +1020,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a78195a6478604e8eeda55bbccb820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messages:
-  - actorId: 0
-    message: Hey, how are you?
-  - actorId: 1
-    message: The neighbourhood is looking nice today!
-  actors:
-  - name: Mike
-    sprite: {fileID: 21300012, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
-  - name: Mike
-    sprite: {fileID: 21300010, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
 --- !u!212 &350157648
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9551,7 +9540,8 @@ GameObject:
   - component: {fileID: 1197055991}
   - component: {fileID: 1197055984}
   - component: {fileID: 1197055983}
-  - component: {fileID: 1197055994}
+  - component: {fileID: 1197055992}
+  - component: {fileID: 1197055993}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -9674,7 +9664,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1197055994
+--- !u!114 &1197055992
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9683,23 +9673,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 1197055980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 549636bad82a20543bb59acd89f9c610, type: 3}
+  m_Script: {fileID: 11500000, guid: 38988ac4a2d37284cb8e437b6f46f7f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  problem1: {fileID: 0}
-  FirstStar: {fileID: 407654443}
-  SecondStar: {fileID: 1740662368}
-  ThirdStar: {fileID: 1159680543}
-  StarColor: {r: 1, g: 0.9689398, b: 0, a: 0}
-  FirstCross: {fileID: 675806675}
-  SecondCross: {fileID: 1490840055}
-  ThirdCross: {fileID: 528208213}
-  CrossColor: {r: 0, g: 0, b: 0, a: 0}
-  WinText: {fileID: 0}
-  OverFlow: {fileID: 0}
-  OldObject: {fileID: 0}
-  mSlider: {fileID: 0}
-  i: 1
+  mEManager: {fileID: 0}
+  rb: {fileID: 0}
+  player: {fileID: 0}
+  mWalkSpeed: 10
+  compleated: 1
+  lives: 1
+  total_task: 10
+--- !u!54 &1197055993
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197055980}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1213742988
 GameObject:
   m_ObjectHideFlags: 0
@@ -10044,7 +10054,6 @@ MonoBehaviour:
   actorName: {fileID: 611670347}
   messageText: {fileID: 1475161790}
   backgroundBox: {fileID: 1294488304}
-  currentMessages: []
   activeMessage: 0
 --- !u!114 &1294488306
 MonoBehaviour:
@@ -17378,20 +17387,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a78195a6478604e8eeda55bbccb820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messages:
-  - actorId: 0
-    message: Who are you?
-  - actorId: 2
-    message: I am Bartholomew.
-  - actorId: 1
-    message: I will guide you.
-  actors:
-  - name: MC
-    sprite: {fileID: 0}
-  - name: Bartholomew
-    sprite: {fileID: 0}
-  - name: ???
-    sprite: {fileID: 0}
 --- !u!114 &2109717764
 MonoBehaviour:
   m_ObjectHideFlags: 0
