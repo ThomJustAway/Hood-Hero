@@ -15,21 +15,23 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] public Image actorImage;
     [SerializeField] public Text actorName;
     [SerializeField] public Text messageText;
-    [SerializeField] public RectTransform backgroundBox; 
+    [SerializeField] public RectTransform backgroundBox;
 
-    public Message[] currentMessages; 
+    public Message[] currentMessages;
     public int activeMessage = 0;
     public bool isActive = false;
+    private bool canProgressDialogue = false;
+
     void Start()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
         }
         else
         {
             print("Can't have more than one instance of dialogue manager");
-            Destroy(Instance);  
+            Destroy(Instance);
         }
         backgroundBox.transform.localScale = Vector3.zero;
     }
@@ -53,7 +55,6 @@ public class DialogueManager : MonoBehaviour
             }
         }
     }
-
     public void OpenDialogueSession(Message[] messages)
     {
         currentMessages = messages;
@@ -66,21 +67,48 @@ public class DialogueManager : MonoBehaviour
     {
         Message messageToDisplay = currentMessages[activeMessage];
         messageText.text = messageToDisplay.message;
+
         actorName.text = messageToDisplay.name;
         actorImage.sprite = messageToDisplay.sprite;
+
         AnimateTextColor();
+    }
+    public void SetDialogueProgression(bool enableProgression)
+    {
+        canProgressDialogue = enableProgression;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("NPC"))
+        {
+            SetDialogueProgression(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("NPC"))
+        {
+            SetDialogueProgression(false);
+        }
     }
 
     public void NextMessage()
     {
-        activeMessage++;
-        if(activeMessage < currentMessages.Length)
+        if ((canProgressDialogue || (currentMessages != null && activeMessage < currentMessages.Length)) && activeMessage >= 0 && activeMessage < currentMessages.Length)
         {
-            DisplayMessage();
-        }
-        else
-        {
-            CloseDialogSession();
+            {
+                activeMessage++;
+                if (activeMessage < currentMessages.Length)
+                {
+                    DisplayMessage();
+                }
+                else
+                {
+                    CloseDialogSession();
+                }
+            }
         }
     }
 
@@ -93,7 +121,7 @@ public class DialogueManager : MonoBehaviour
 
     private void CloseDialogSession()
     {
-        currentMessages = null; 
+        currentMessages = null;
 
         // Play the background fade
         backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInExpo();
