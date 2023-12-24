@@ -40,10 +40,6 @@ public class ProblemSelector : MonoBehaviour
     public DetailOfTheProblem[] Details { get {  return details; } }
     #endregion
 
-    private void Start()
-    {
-        
-    }
 
     public void IsSolve()
     {
