@@ -36,11 +36,21 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        //change this later
-        if(messageText != null && Input.GetKeyUp(KeyCode.Space))
+        // For space
+        if (messageText != null && Input.GetKeyUp(KeyCode.Space))
         {
-            //will try and do next message
             NextMessage();
+        }
+
+        // For tapping
+        if (messageText != null && Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began)
+            {
+                NextMessage();
+            }
         }
     }
     public void OpenDialogueSession(Message[] messages)
