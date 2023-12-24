@@ -53,6 +53,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
     }
+
     public void OpenDialogueSession(Message[] messages)
     {
         currentMessages = messages;
@@ -65,10 +66,8 @@ public class DialogueManager : MonoBehaviour
     {
         Message messageToDisplay = currentMessages[activeMessage];
         messageText.text = messageToDisplay.message;
-
         actorName.text = messageToDisplay.name;
         actorImage.sprite = messageToDisplay.sprite;
-
         AnimateTextColor();
     }
 
