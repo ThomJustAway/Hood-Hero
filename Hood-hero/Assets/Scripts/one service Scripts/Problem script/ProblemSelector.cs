@@ -42,8 +42,8 @@ public class ProblemSelector : MonoBehaviour
 
     public void IsSolve()
     {
-        //send event
-        enabled = false; //make it disappear
+        EventManager.instance.AlertScoringListener(this);
+        EventManager.instance.RemoveTimingListener(OnceTimePass);
         gameObject.SetActive(false);
     }
 

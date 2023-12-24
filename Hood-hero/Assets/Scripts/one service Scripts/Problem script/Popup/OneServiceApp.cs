@@ -208,9 +208,7 @@ public class OneServiceApp : MonoBehaviour
             selectedDetail.isCorrect //check if the selectedDetail is correct
             )
         {//if the player selected the problem correctly
-            //mSliderManager.CompleteTask();
-            
-            EventManager.instance.AlertScoringListener(ProblemFound);
+            //mSliderManager.CompleteTask();            
             ProblemFound.IsSolve();
         }
         else

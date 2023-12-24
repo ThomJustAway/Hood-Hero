@@ -7574,7 +7574,9 @@ MonoBehaviour:
   subProblem: 1
   isSeriousProblem: 1
   timer: 3
-  clockPrefab: {fileID: 0}
+  TimeToDecrease: 0.24
+  startingColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  endingColor: {r: 0.94716984, g: 0.24126014, b: 0.24126014, a: 1}
   closeUpImage: {fileID: -1825931381, guid: 1201c14bb4ee74d8e99e56dc4f3f4fd1, type: 3}
   farAwayImage: {fileID: -6142457889746999768, guid: b79f22cd227d76c4b9c9986dcf0514f0, type: 3}
   details:
@@ -11112,8 +11114,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1315288229}
   - component: {fileID: 1315288228}
+  - component: {fileID: 1315288230}
   m_Layer: 0
-  m_Name: EventManager
+  m_Name: Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11146,6 +11149,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1315288230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315288227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 313cdae09e6540f49bdcbdc487abde4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clockPrefab: {fileID: 3517890674320360576, guid: cb9f0dd5ce04127459dd51161afb7d34, type: 3}
 --- !u!1 &1325300145
 GameObject:
   m_ObjectHideFlags: 0
@@ -13019,8 +13035,10 @@ MonoBehaviour:
   mainProblem: 3
   subProblem: 5
   isSeriousProblem: 0
-  timer: 0
-  clockPrefab: {fileID: 0}
+  timer: 4
+  TimeToDecrease: 0.2
+  startingColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  endingColor: {r: 1, g: 0, b: 0, a: 1}
   closeUpImage: {fileID: 21300000, guid: a3afa05dfa31b6447a58125ba9488d93, type: 3}
   farAwayImage: {fileID: 21300000, guid: b02c044200dc38e49a50edba3f7cd9f5, type: 3}
   details:
