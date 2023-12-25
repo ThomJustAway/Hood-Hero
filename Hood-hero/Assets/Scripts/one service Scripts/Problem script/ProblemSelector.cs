@@ -40,6 +40,7 @@ public class ProblemSelector : MonoBehaviour
     public DetailOfTheProblem[] Details { get {  return details; } }
     #endregion
 
+
     public void IsSolve()
     {
         EventManager.instance.AlertScoringListener(this);
