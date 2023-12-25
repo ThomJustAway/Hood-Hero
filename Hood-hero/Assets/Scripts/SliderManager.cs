@@ -38,6 +38,7 @@ public class SliderManager : MonoBehaviour
 
     private void Start()
     {
+        totalTask = FindObjectsOfType<ProblemSelector>().Length;
         mSlider.minValue = 0;
         mSlider.maxValue = totalTask;
         mSlider.value = 0;
@@ -46,10 +47,17 @@ public class SliderManager : MonoBehaviour
         //use the event manager like this and evoke it in any class pertaining that wants to evoke the listener
         EventManager.instance.AddListener(TypeOfEvent.MistakeEvent, ActivatedError);
         EventManager.instance.AddScoringListener(CompleteTask);
+        EventManager.instance.AddListener(TypeOfEvent.ScoreEvent, DisplayCompletetask);
     }
 
     // call this function once task is completed
-    public void CompleteTask(ProblemSelector problem) 
+    public void CompleteTask(ProblemSelector problem)
+    {
+        DisplayCompletetask();
+    }
+
+    //have to use this for testing purposes, can remove this afterwards!
+    private void DisplayCompletetask()
     {
         //use the problem here
         completedTask++; //finish a completed task
@@ -57,10 +65,17 @@ public class SliderManager : MonoBehaviour
         if (completedTask == totalTask)//100%
         {
             ThirdStar.color = activatedStarColor;
+            SecondStar.color = activatedStarColor;
+            FirstStar.color = activatedStarColor;
+
+            //has already won!
+            EventManager.instance.RemovingScoringListener(CompleteTask);
+            EventManager.instance.AlertListeners(TypeOfEvent.WinEvent);
         }
         else if (completedTask >= totalTask * 0.70)// when the completed task is 
         {
             SecondStar.color = activatedStarColor;
+            FirstStar.color = activatedStarColor;
         }
         else if (completedTask == totalTask / 2)// when the complete task is at least 50%
         {
@@ -79,6 +94,7 @@ public class SliderManager : MonoBehaviour
             //add game over event here
             ThirdCross.color = activatedCrossColor;
             //make sure the other listeners know what to do
+            EventManager.instance.RemoveListener(TypeOfEvent.MistakeEvent, ActivatedError);
             EventManager.instance.AlertListeners(TypeOfEvent.LoseEvent);
         }
         else if(cross == 2)

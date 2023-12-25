@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 namespace pattern
@@ -121,6 +122,14 @@ namespace pattern
             Init();
         }
 
+        //void OnGUI()
+        //{
+        //    if (GUI.Button(new Rect(10, 10, 150, 100), "I am a button"))
+        //    {
+        //        print("You clicked the button!");
+        //    }
+        //}
+
     }
 
     public enum TypeOfEvent
@@ -129,5 +138,42 @@ namespace pattern
         LoseEvent,
         WinEvent,
         DialogEndEvent,
+        ScoreEvent
     }
+
+#if UNITY_EDITOR
+    [CustomEditor(typeof(EventManager))]
+    public class EventManagerInspector : Editor
+    {
+        private EventManager manager;
+        private void OnEnable()
+        {
+            manager = serializedObject.targetObject as EventManager;
+        }
+
+        public override void OnInspectorGUI()
+        {
+            GUILayout.Label("only use during runtime");
+            if(GUILayout.Button("Win event"))
+            {
+                manager.AlertListeners(TypeOfEvent.WinEvent);
+            }
+            if (GUILayout.Button("Lose event"))
+            {
+                manager.AlertListeners(TypeOfEvent.LoseEvent);
+            }
+            if (GUILayout.Button("Score event"))
+            {
+                manager.AlertListeners(TypeOfEvent.ScoreEvent);
+            }
+            if (GUILayout.Button("mistake event"))
+            {
+                manager.AlertListeners(TypeOfEvent.MistakeEvent);
+            }
+        }
+
+        
+    }
+#endif
+
 }
