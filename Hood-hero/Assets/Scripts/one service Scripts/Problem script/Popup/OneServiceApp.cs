@@ -215,8 +215,6 @@ public class OneServiceApp : MonoBehaviour
         {
             EventManager.instance.AlertListeners(TypeOfEvent.MistakeEvent);
         }
-
-
         CloseApp();
     }
     private void ResetValues()

@@ -5,7 +5,8 @@
         None,
         Cleanliness,
         FacilitiesInHDBEstates,
-        RoadAndFootPaths
+        RoadAndFootPaths,
+        FakeProblem // to trick player
     }
 }
 

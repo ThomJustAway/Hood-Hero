@@ -134,11 +134,15 @@ namespace pattern
 
     public enum TypeOfEvent
     {//add the relevant events here
+        //special event here!
         MistakeEvent,
         LoseEvent,
         WinEvent,
+
+        //dialog
         DialogEndEvent,
-        ScoreEvent
+        //walking
+        walking
     }
 
 #if UNITY_EDITOR
@@ -164,7 +168,7 @@ namespace pattern
             }
             if (GUILayout.Button("Score event"))
             {
-                manager.AlertListeners(TypeOfEvent.ScoreEvent);
+                manager.AlertScoringListener(null);
             }
             if (GUILayout.Button("mistake event"))
             {

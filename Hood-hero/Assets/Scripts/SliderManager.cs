@@ -47,7 +47,6 @@ public class SliderManager : MonoBehaviour
         //use the event manager like this and evoke it in any class pertaining that wants to evoke the listener
         EventManager.instance.AddListener(TypeOfEvent.MistakeEvent, ActivatedError);
         EventManager.instance.AddScoringListener(CompleteTask);
-        EventManager.instance.AddListener(TypeOfEvent.ScoreEvent, DisplayCompletetask);
     }
 
     // call this function once task is completed
