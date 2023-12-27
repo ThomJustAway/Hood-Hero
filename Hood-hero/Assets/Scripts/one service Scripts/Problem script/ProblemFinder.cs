@@ -18,7 +18,7 @@ namespace Assets.Scripts
 
         private PlayerMovementScript playerMovement;
 
-        private bool isButtonAway = false;
+        public bool isButtonAway = false;
         private Vector3 buttonInitialPosition;
         private Vector3 buttonMoveToPosition;
 
@@ -43,7 +43,7 @@ namespace Assets.Scripts
             buttonInitialPosition = button.transform.position;
             //Debug.Log("Initial Position = " + buttonInitialPosition);
             buttonMoveToPosition = buttonMoveLocation.transform.position;
-            playerMovement = GetComponent<PlayerMovementScript>();  
+            playerMovement = GetComponent<PlayerMovementScript>();
             app = OneServiceApp.instance;
         }
 
@@ -51,20 +51,22 @@ namespace Assets.Scripts
         void Update()
         {
             CheckingProblem();
-            MovingButton();
+            //MovingButton();
         }
 
-        private void MovingButton()
-        {
-            if (isButtonAway == false)
-            {
-                button.transform.position = Vector3.MoveTowards(button.transform.position, buttonInitialPosition, Time.deltaTime * 1500.0f);
-            }
-            else if (isButtonAway == true)
-            {
-                button.transform.position = Vector3.MoveTowards(button.transform.position, buttonMoveToPosition, Time.deltaTime * 1500.0f);
-            }
-        }
+        //private void MovingButton()
+        //{
+        //    if (isButtonAway == false)
+        //    {
+        //        //button.transform.position = Vector3.MoveTowards(button.transform.position, buttonInitialPosition, Time.deltaTime * 1500.0f);
+        //        problemPopup.ProblemPopupMoveToInitPosition();
+        //    }
+        //    else if (isButtonAway == true)
+        //    {
+        //        //button.transform.position = Vector3.MoveTowards(button.transform.position, buttonMoveToPosition, Time.deltaTime * 1500.0f);
+        //        problemPopup.ProblemPopupMoveToGameObject();
+        //    }
+        //}
 
         private void CheckingProblem()
         {
