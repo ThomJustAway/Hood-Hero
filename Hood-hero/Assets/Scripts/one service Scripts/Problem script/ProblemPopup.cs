@@ -15,7 +15,8 @@ public class ProblemPopup : MonoBehaviour
     void Start()
     {
         popupImageInitialPosition = popupImage.transform.position;
-        Debug.Log(popupImageInitialPosition);
+        Debug.Log("Popup Start Position = " + popupImageInitialPosition);
+        Debug.Log("Problem Position = " + problemPosition.transform.position);
         popupImageAboveProblemPosition = new Vector3(problemPosition.transform.position.x,
             problemPosition.transform.position.y + 1.3f,
             problemPosition.transform.position.z);
@@ -42,7 +43,7 @@ public class ProblemPopup : MonoBehaviour
 
     public void ProblemPopupMoveToGameObject()
     {
-        popupImage.transform.position = problemPosition.position + new Vector3(0f, 1.3f, 0f);
+        popupImage.transform.position = problemPosition.localPosition + new Vector3(0f, 1.3f, 0f);
         Debug.Log(popupImage.transform.position);
     }
 
