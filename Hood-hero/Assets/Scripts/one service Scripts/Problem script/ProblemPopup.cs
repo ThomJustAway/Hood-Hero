@@ -15,10 +15,11 @@ public class ProblemPopup : MonoBehaviour
     void Start()
     {
         popupImageInitialPosition = popupImage.transform.position;
-        popupImageAboveProblemPosition = new Vector3(problemPosition.transform.position.x, 
-            problemPosition.transform.position.y + 1.3f, 
+        Debug.Log(popupImageInitialPosition);
+        popupImageAboveProblemPosition = new Vector3(problemPosition.transform.position.x,
+            problemPosition.transform.position.y + 1.3f,
             problemPosition.transform.position.z);
-        
+
     }
 
     // Update is called once per frame
@@ -41,7 +42,8 @@ public class ProblemPopup : MonoBehaviour
 
     public void ProblemPopupMoveToGameObject()
     {
-        popupImage.transform.position = popupImageAboveProblemPosition;  
+        popupImage.transform.position = problemPosition.position + new Vector3(0f, 1.3f, 0f);
+        Debug.Log(popupImage.transform.position);
     }
 
     public void ProblemPopupMoveToInitPosition()
@@ -49,7 +51,7 @@ public class ProblemPopup : MonoBehaviour
         popupImage.transform.position = popupImageInitialPosition;
     }
 
-    private void OnMouseDown()
+    private void OnMouseUpAsButton()
     {
         Debug.Log("PRESSED!");
         if (ReportUI != null)
