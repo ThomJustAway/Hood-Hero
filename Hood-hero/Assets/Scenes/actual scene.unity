@@ -235,7 +235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &65134160
 Transform:
   m_ObjectHideFlags: 0
@@ -8911,6 +8911,7 @@ GameObject:
   - component: {fileID: 514746793}
   - component: {fileID: 514746792}
   - component: {fileID: 514746791}
+  - component: {fileID: 514746794}
   m_Layer: 5
   m_Name: UpButton
   m_TagString: Untagged
@@ -8980,19 +8981,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 514746792}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1578796710}
-        m_TargetAssemblyTypeName: movement.PlayerMovementScript, Assembly-CSharp
-        m_MethodName: MoveUp
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &514746792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9031,6 +9020,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 514746789}
   m_CullTransparentMesh: 1
+--- !u!114 &514746794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514746789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb77c6755ae331644a724fb2b47b63b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yourEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1578796710}
+        m_TargetAssemblyTypeName: movement.PlayerMovementScript, Assembly-CSharp
+        m_MethodName: MoveUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -9135,6 +9151,7 @@ GameObject:
   - component: {fileID: 521399506}
   - component: {fileID: 521399505}
   - component: {fileID: 521399504}
+  - component: {fileID: 521399507}
   m_Layer: 5
   m_Name: Left Button
   m_TagString: Untagged
@@ -9204,19 +9221,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 521399505}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1578796710}
-        m_TargetAssemblyTypeName: movement.PlayerMovementScript, Assembly-CSharp
-        m_MethodName: MoveLeft
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &521399505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9255,6 +9260,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521399502}
   m_CullTransparentMesh: 1
+--- !u!114 &521399507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521399502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb77c6755ae331644a724fb2b47b63b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yourEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1578796710}
+        m_TargetAssemblyTypeName: movement.PlayerMovementScript, Assembly-CSharp
+        m_MethodName: MoveLeft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &526103937
 GameObject:
   m_ObjectHideFlags: 0
@@ -9896,7 +9928,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   problemFinder: {fileID: 1578796706}
+  problemPosition: {fileID: 0}
   popupImage: {fileID: 1202158967}
+  ReportUI: {fileID: 0}
 --- !u!1 &645634811
 GameObject:
   m_ObjectHideFlags: 0
@@ -12043,6 +12077,7 @@ GameObject:
   - component: {fileID: 1032113692}
   - component: {fileID: 1032113691}
   - component: {fileID: 1032113690}
+  - component: {fileID: 1032113693}
   m_Layer: 5
   m_Name: Right button
   m_TagString: Untagged
@@ -12112,19 +12147,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1032113691}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1578796710}
-        m_TargetAssemblyTypeName: movement.PlayerMovementScript, Assembly-CSharp
-        m_MethodName: MoveRight
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1032113691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12163,6 +12186,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032113688}
   m_CullTransparentMesh: 1
+--- !u!114 &1032113693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032113688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb77c6755ae331644a724fb2b47b63b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yourEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1578796710}
+        m_TargetAssemblyTypeName: movement.PlayerMovementScript, Assembly-CSharp
+        m_MethodName: MoveRight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1060004268
 GameObject:
   m_ObjectHideFlags: 0
@@ -12175,6 +12225,7 @@ GameObject:
   - component: {fileID: 1060004272}
   - component: {fileID: 1060004271}
   - component: {fileID: 1060004270}
+  - component: {fileID: 1060004273}
   m_Layer: 5
   m_Name: Down button
   m_TagString: Untagged
@@ -12244,19 +12295,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1060004271}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1578796710}
-        m_TargetAssemblyTypeName: movement.PlayerMovementScript, Assembly-CSharp
-        m_MethodName: MoveDown
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1060004271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12295,6 +12334,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1060004268}
   m_CullTransparentMesh: 1
+--- !u!114 &1060004273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060004268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb77c6755ae331644a724fb2b47b63b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yourEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1578796710}
+        m_TargetAssemblyTypeName: movement.PlayerMovementScript, Assembly-CSharp
+        m_MethodName: MoveDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1098433478
 GameObject:
   m_ObjectHideFlags: 0
@@ -35726,6 +35792,9 @@ MonoBehaviour:
   spriteRight: {fileID: 22100000, guid: dab4cf8a98bf8154b847492d659f1359, type: 2}
   spriteUp: {fileID: 22100000, guid: 4106f0c3697858645965c00ca1bfbb48, type: 2}
   spriteDown: {fileID: 22100000, guid: 25774b88e9ba5f943b99c15f80b44fa1, type: 2}
+  maskToIncludeForMovement:
+    serializedVersion: 2
+    m_Bits: 1015
 --- !u!1 &1596602539
 GameObject:
   m_ObjectHideFlags: 0
@@ -61610,7 +61679,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   problemFinder: {fileID: 1578796706}
+  problemPosition: {fileID: 0}
   popupImage: {fileID: 1202158967}
+  ReportUI: {fileID: 0}
 --- !u!1 &1888859340
 GameObject:
   m_ObjectHideFlags: 0
