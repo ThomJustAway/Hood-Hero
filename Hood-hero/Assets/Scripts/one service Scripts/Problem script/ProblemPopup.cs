@@ -50,6 +50,7 @@ public class ProblemPopup : MonoBehaviour
     public void ProblemPopupMoveToInitPosition()
     {
         popupImage.transform.position = popupImageInitialPosition;
+        Debug.Log(popupImage.transform.position);
     }
 
     private void OnMouseUpAsButton()
