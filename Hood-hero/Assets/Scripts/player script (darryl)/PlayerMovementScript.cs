@@ -44,10 +44,10 @@ namespace movement{
         #region movement
         private void HandleInputForTesting()
         {
-            if (Input.GetKeyDown(KeyCode.W)) Move(DirectionType.Up);
-            else if (Input.GetKeyDown(KeyCode.A)) Move(DirectionType.Left);
-            else if (Input.GetKeyDown(KeyCode.S)) Move(DirectionType.Down);
-            else if (Input.GetKeyDown(KeyCode.D)) Move(DirectionType.Right);
+            if (Input.GetKey(KeyCode.W)) Move(DirectionType.Up);
+            else if (Input.GetKey(KeyCode.A)) Move(DirectionType.Left);
+            else if (Input.GetKey(KeyCode.S)) Move(DirectionType.Down);
+            else if (Input.GetKey(KeyCode.D)) Move(DirectionType.Right);
         }
 
         private void Move(DirectionType TypeOfMovement)
