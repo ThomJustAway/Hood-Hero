@@ -48,3 +48,6 @@ TagManager:
   - name: HUD Ui
     uniqueID: 3945535187
     locked: 0
+  - name: Obstacles
+    uniqueID: 4178326691
+    locked: 0
