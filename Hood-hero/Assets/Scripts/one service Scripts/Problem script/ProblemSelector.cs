@@ -10,7 +10,7 @@ using pattern;
 using UnityEditor.Experimental.GraphView;
 using Assets.Scripts.one_service_Scripts.pattern;
 using Unity.Mathematics;
-[RequireComponent(typeof(ProblemPopup))]
+//[RequireComponent(typeof(ProblemPopup))]
 public class ProblemSelector : MonoBehaviour 
 {
     [SerializeField] private MainProblem mainProblem = MainProblem.Cleanliness;

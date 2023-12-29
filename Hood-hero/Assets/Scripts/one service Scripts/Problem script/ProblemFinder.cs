@@ -24,6 +24,9 @@ namespace Assets.Scripts
 
         private OneServiceApp app;
 
+        [SerializeField] private GameObject popupImage;
+        private Vector3 popupImageInitialPosition;
+
         private void Awake()
         {
             if(Instance == null)
@@ -45,29 +48,39 @@ namespace Assets.Scripts
             buttonMoveToPosition = buttonMoveLocation.transform.position;
             playerMovement = GetComponent<PlayerMovementScript>();
             app = OneServiceApp.instance;
+            popupImageInitialPosition = popupImage.transform.position;
         }
 
         // Update is called once per frame
         void Update()
         {
             CheckingProblem();
-            //MovingButton();
+            MovingButton();
         }
 
-        //private void MovingButton()
-        //{
-        //    if (isButtonAway == false)
-        //    {
-        //        //button.transform.position = Vector3.MoveTowards(button.transform.position, buttonInitialPosition, Time.deltaTime * 1500.0f);
-        //        problemPopup.ProblemPopupMoveToInitPosition();
-        //    }
-        //    else if (isButtonAway == true)
-        //    {
-        //        //button.transform.position = Vector3.MoveTowards(button.transform.position, buttonMoveToPosition, Time.deltaTime * 1500.0f);
-        //        problemPopup.ProblemPopupMoveToGameObject();
-        //    }
-        //}
+        private void MovingButton()
+        {
+            if (isButtonAway == false)
+            {
+                //button.transform.position = Vector3.MoveTowards(button.transform.position, buttonInitialPosition, Time.deltaTime * 1500.0f);
+                ProblemPopupMoveToInitPosition();
+            }
+            else if (isButtonAway == true)
+            {
+                //button.transform.position = Vector3.MoveTowards(button.transform.position, buttonMoveToPosition, Time.deltaTime * 1500.0f);
+                ProblemPopupMoveToGameObject();
+            }
+        }
 
+        void ProblemPopupMoveToInitPosition()
+        {
+            popupImage.transform.position = popupImageInitialPosition;
+        }
+
+        void ProblemPopupMoveToGameObject()
+        {
+            popupImage.transform.position = transform.position + new Vector3(0f, 1.3f, 0f);
+        }
         private void CheckingProblem()
         {
             // add extra perimeter here to only do raycasting on problems only
