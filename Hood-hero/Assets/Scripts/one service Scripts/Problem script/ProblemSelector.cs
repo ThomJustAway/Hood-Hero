@@ -40,7 +40,6 @@ public class ProblemSelector : MonoBehaviour
     public DetailOfTheProblem[] Details { get {  return details; } }
     #endregion
 
-
     public void IsSolve()
     {
         EventManager.instance.AlertScoringListener(this);
@@ -54,7 +53,16 @@ public class ProblemSelector : MonoBehaviour
         {
             var sliderGameobject = Instantiate(PrefabManager.instance.clockPrefab,transform); 
             //just create the clock to show the progress of the serious problem
-            sliderGameobject.transform.Translate(0,1f,0);
+            Vector3 newPosition = sliderGameobject.transform.position;
+            newPosition.y += 1f;
+            newPosition.z = 0f;
+            sliderGameobject.transform.position = newPosition;
+            
+            //setting up camera
+            Canvas sliderCanvas = sliderGameobject.GetComponent<Canvas>();
+            sliderCanvas.worldCamera = Camera.main;
+            sliderCanvas.sortingOrder = 1;
+
             slider = sliderGameobject.GetComponentInChildren<Slider>();
             sliderColor = slider.fillRect.GetComponent<Image>();
             slider.value = 1;
@@ -79,8 +87,6 @@ public class ProblemSelector : MonoBehaviour
             EventManager.instance.RemoveTimingListener(OnceTimePass);
             slider.gameObject.SetActive(false); //dont show it anymore!
         }
-        
-        
     }
 
     private IEnumerator EaseProgress(float targetProgress)

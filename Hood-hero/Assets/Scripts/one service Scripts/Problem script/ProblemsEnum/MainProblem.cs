@@ -6,6 +6,7 @@
         Cleanliness,
         FacilitiesInHDBEstates,
         RoadAndFootPaths,
+        DrainsAndSewers,
         FakeProblem // to trick player
     }
 }

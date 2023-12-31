@@ -138,6 +138,7 @@ namespace pattern
         MistakeEvent,
         LoseEvent,
         WinEvent,
+        GameEnd,
 
         //dialog
         DialogEndEvent,

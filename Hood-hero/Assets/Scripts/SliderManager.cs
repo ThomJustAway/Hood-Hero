@@ -46,6 +46,7 @@ public class SliderManager : MonoBehaviour
 
         //use the event manager like this and evoke it in any class pertaining that wants to evoke the listener
         EventManager.instance.AddListener(TypeOfEvent.MistakeEvent, ActivatedError);
+        EventManager.instance.AddListener(TypeOfEvent.GameEnd, GameEnd);
         EventManager.instance.AddScoringListener(CompleteTask);
     }
 
@@ -112,6 +113,18 @@ public class SliderManager : MonoBehaviour
         //add coroutine to the progress to show the animation
         amountOfProblemText.text = $"Problems:\n {completedTask}/{totalTask}"; //set the text
         mSlider.value = completedTask; //show progress to the progress bar
+    }
+
+    private void GameEnd()
+    {
+        if(completedTask >= totalTask / 2)
+        {
+            EventManager.instance.AlertListeners(TypeOfEvent.WinEvent);
+        }
+        else
+        {
+            EventManager.instance.AlertListeners(TypeOfEvent.LoseEvent);
+        }
     }
 
     public void SceneMover(int current)

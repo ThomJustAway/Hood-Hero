@@ -47,7 +47,7 @@ namespace HoodHeroUI{
         {
             //add event for end function
             EventManager.instance.RemoveAllTimingListener();
-            EventManager.instance.AlertListeners(TypeOfEvent.LoseEvent);
+            EventManager.instance.AlertListeners(TypeOfEvent.GameEnd);
         }
     }
 }
