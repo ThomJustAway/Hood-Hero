@@ -30,16 +30,19 @@ public class HudController : MonoBehaviour
 
     public void OnClickNextLevel()
     {
-        //write code here!
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void OnClickRestartBtn()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void OnClickHomeBtn()
     {
-        //write code here!
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

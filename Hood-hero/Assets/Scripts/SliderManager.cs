@@ -28,6 +28,10 @@ public class SliderManager : MonoBehaviour
     [SerializeField] private Color activatedCrossColor;
     [SerializeField] private Color unactivatedCrossColor;
 
+    [Header("Winning")]
+    [SerializeField] private Image FirstStarWinningScreen;
+    [SerializeField] private Image SecondStarWinningScreen;
+    [SerializeField] private Image ThirdStarWinningScreen;
     [Header("Task to complete")]
     private int completedTask = 0;
     [SerializeField]private int totalTask;
@@ -68,6 +72,10 @@ public class SliderManager : MonoBehaviour
             SecondStar.color = activatedStarColor;
             FirstStar.color = activatedStarColor;
 
+            FirstStarWinningScreen.color = activatedStarColor;
+            ThirdStarWinningScreen.color = activatedStarColor;
+            SecondStarWinningScreen.color = activatedStarColor;
+
             //has already won!
             EventManager.instance.RemovingScoringListener(CompleteTask);
             EventManager.instance.AlertListeners(TypeOfEvent.WinEvent);
@@ -76,9 +84,13 @@ public class SliderManager : MonoBehaviour
         {
             SecondStar.color = activatedStarColor;
             FirstStar.color = activatedStarColor;
+
+            SecondStarWinningScreen.color = activatedStarColor;
+            FirstStarWinningScreen.color = activatedStarColor;
         }
         else if (completedTask == totalTask / 2)// when the complete task is at least 50%
         {
+            FirstStarWinningScreen.color = activatedStarColor;
             FirstStar.color = activatedStarColor;
         }
 
