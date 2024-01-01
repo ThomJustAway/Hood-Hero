@@ -42,7 +42,7 @@ public class SliderManager : MonoBehaviour
 
     private void Start()
     {
-        totalTask = FindObjectsOfType<ProblemSelector>().Length;
+        CalculatingTotalTask();
         mSlider.minValue = 0;
         mSlider.maxValue = totalTask;
         mSlider.value = 0;
@@ -52,6 +52,19 @@ public class SliderManager : MonoBehaviour
         EventManager.instance.AddListener(TypeOfEvent.MistakeEvent, ActivatedError);
         EventManager.instance.AddListener(TypeOfEvent.GameEnd, GameEnd);
         EventManager.instance.AddScoringListener(CompleteTask);
+    }
+
+    private void CalculatingTotalTask()
+    {
+        var problems = FindObjectsOfType<ProblemSelector>();
+        totalTask = 0;
+        foreach(var problem in problems)
+        {
+            if(problem.MainProblem != Problem.MainProblem.FakeProblem)
+            {
+                totalTask++;
+            }
+        }
     }
 
     // call this function once task is completed

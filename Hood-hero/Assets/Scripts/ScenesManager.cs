@@ -17,6 +17,7 @@ public class ScenesManager : MonoBehaviour
         startMenu,
         SampleScene
     }
+
     public void LoadScene(Scene scene)
     {
         SceneManager.LoadScene(scene.ToString());
@@ -24,7 +25,7 @@ public class ScenesManager : MonoBehaviour
 
     public void LoadNew()
     {
-        SceneManager.LoadScene(Scene.SampleScene.ToString());
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void LoadMenu()
