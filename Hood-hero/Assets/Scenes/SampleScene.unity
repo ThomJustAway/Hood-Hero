@@ -1022,15 +1022,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messages:
-  - actorId: 0
+  - name: 
     message: Hey, how are you?
-  - actorId: 1
+    sprite: {fileID: 0}
+  - name: 
     message: The neighbourhood is looking nice today!
-  actors:
-  - name: Mike
-    sprite: {fileID: 21300012, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
-  - name: Mike
-    sprite: {fileID: 21300010, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
+    sprite: {fileID: 0}
 --- !u!212 &350157648
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9552,6 +9549,9 @@ GameObject:
   - component: {fileID: 1197055984}
   - component: {fileID: 1197055983}
   - component: {fileID: 1197055994}
+  - component: {fileID: 1197055996}
+  - component: {fileID: 1197055998}
+  - component: {fileID: 1197055997}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -9686,20 +9686,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 549636bad82a20543bb59acd89f9c610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  problem1: {fileID: 0}
-  FirstStar: {fileID: 407654443}
-  SecondStar: {fileID: 1740662368}
-  ThirdStar: {fileID: 1159680543}
-  StarColor: {r: 1, g: 0.9689398, b: 0, a: 0}
-  FirstCross: {fileID: 675806675}
-  SecondCross: {fileID: 1490840055}
-  ThirdCross: {fileID: 528208213}
-  CrossColor: {r: 0, g: 0, b: 0, a: 0}
-  WinText: {fileID: 0}
-  OverFlow: {fileID: 0}
-  OldObject: {fileID: 0}
-  mSlider: {fileID: 0}
-  i: 1
+--- !u!114 &1197055996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197055980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38988ac4a2d37284cb8e437b6f46f7f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mEManager: {fileID: 0}
+  mSliderController: {fileID: 0}
+  rb: {fileID: 0}
+  player: {fileID: 0}
+  mWalkSpeed: 10
+  compleated: 10
+  lives: 1
+  total_task: 10
+  done: 1
+--- !u!114 &1197055997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197055980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6134ea4867d2ec4ca4728593561874c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 0}
+  fillSpeed: 1
+--- !u!114 &1197055998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197055980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced2597b9a9e8f840a14bcee1f075b0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountOfProblemText: {fileID: 0}
+  FirstStar: {fileID: 0}
+  SecondStar: {fileID: 0}
+  ThirdStar: {fileID: 0}
+  activatedStarColor: {r: 0, g: 0, b: 0, a: 0}
+  unactivatedStarColor: {r: 0, g: 0, b: 0, a: 0}
+  FirstCross: {fileID: 0}
+  SecondCross: {fileID: 0}
+  ThirdCross: {fileID: 0}
+  activatedCrossColor: {r: 0, g: 0, b: 0, a: 0}
+  unactivatedCrossColor: {r: 0, g: 0, b: 0, a: 0}
+  totalTask: 0
+  mSlider: {fileID: 832630230}
 --- !u!1 &1213742988
 GameObject:
   m_ObjectHideFlags: 0
@@ -17379,18 +17425,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messages:
-  - actorId: 0
+  - name: 
     message: Who are you?
-  - actorId: 2
+    sprite: {fileID: 0}
+  - name: 
     message: I am Bartholomew.
-  - actorId: 1
+    sprite: {fileID: 0}
+  - name: 
     message: I will guide you.
-  actors:
-  - name: MC
-    sprite: {fileID: 0}
-  - name: Bartholomew
-    sprite: {fileID: 0}
-  - name: ???
     sprite: {fileID: 0}
 --- !u!114 &2109717764
 MonoBehaviour:

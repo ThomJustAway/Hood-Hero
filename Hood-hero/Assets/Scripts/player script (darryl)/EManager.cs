@@ -48,65 +48,65 @@ public class EManager : MonoBehaviour
     {
         //CompleatedTask(i);
     }
-    public int CompleatedTask(int compleated , int total_task)
-    {
+    //public int CompleatedTask(int compleated , int total_task)
+    //{
 
-        if (compleated == total_task/2)//50%
-        {
+        //if (compleated == total_task/2)//50%
+        //{
             
             //CompleatFirstText.enabled = true;
-            mSlider.UpdateProgress(compleated,total_task);
-            problem1.text = "test";
-            FirstStar.color = StarColor;
-            compleated++;
-            Debug.Log("first called +" + compleated);
-            return compleated;
-        }
-        if (compleated == total_task * 0.7)//75% 0.7
-        {
-            mSlider.UpdateProgress(compleated, total_task);
-            SecondStar.color = StarColor;
-            compleated++;
+           // mSlider.UpdateProgress(compleated,total_task);
+           // problem1.text = "test";
+           // FirstStar.color = StarColor;
+            //compleated++;
+            //Debug.Log("first called +" + compleated);
+            //return compleated;
+        //}
+        //if (compleated == total_task * 0.7)//75% 0.7
+        //{
+            //mSlider.UpdateProgress(compleated, total_task);
+            //SecondStar.color = StarColor;
+            //compleated++;
             //CompleatSecondText.enabled = true;
-            return compleated;
-        }
-        if (compleated == total_task)//100%
-        {
-            mSlider.UpdateProgress(compleated, total_task);
-            ThirdStar.color = StarColor;
-            compleated++;
+            //return compleated;
+        //}
+        //if (compleated == total_task)//100%
+        //{
+            //mSlider.UpdateProgress(compleated, total_task);
+            //ThirdStar.color = StarColor;
+            //compleated++;
             //CompleatThirdText.enabled = true;
             //WinText.enabled = true;
-            return compleated;
-        }
+            //return compleated;
+        //}
 
-        return compleated;
-    }
-    public int CrossCount(int lives)
-    {
+        //return compleated;
+    //}
+    //public int CrossCount(int lives)
+    //{
 
 
-        if (lives == 1)
-        {
-            lives++;
-            FirstCross.color = CrosColor;
-            return lives;
-        }
-        if (lives == 2)
-        {
-            lives++;
-            SecondCross.color = CrosColor;
-            return lives;
-        }
-        if (lives == 3)
-        {
-            lives++;
-            ThirdCross.color = CrosColor;
+        //if (lives == 1)
+        //{
+            //lives++;
+            //FirstCross.color = CrosColor;
+           // return lives;
+        //}
+        //if (lives == 2)
+        //{
+            //lives++;
+            //SecondCross.color = CrosColor;
+            //return lives;
+        //}
+        //if (lives == 3)
+        //{
+            //lives++;
+            //ThirdCross.color = CrosColor;
             //RestartText.enabled = true;
-            return lives = 0;
-        }
-        return 1;
-    }
+            //return lives = 0;
+       // }
+        //return 1;
+    //}
     public void TooLate()
     {
         OverFlow.SetActive(true);

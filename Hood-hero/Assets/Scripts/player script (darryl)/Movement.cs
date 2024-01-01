@@ -9,6 +9,7 @@ public class Move : MonoBehaviour
 {
     
     public EManager mEManager;
+    public SliderController mSliderController;
     public Rigidbody2D rb;
     //public Sprite playerSprite;
     public Animator player;
@@ -21,6 +22,7 @@ public class Move : MonoBehaviour
     public int compleated = 1;
     public int lives = 1;
     public int total_task = 10;
+    public int done;
     // Start is called before the first frame update
 
     
@@ -28,14 +30,16 @@ public class Move : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         mEManager = GetComponent<EManager>();
+        mSliderController = GetComponent<SliderController>();
         //playerSprite = GetComponent<Sprite>();
     }
     
     // Update is called once per frame
     void Update()
     {
-        mEManager.CompleatedTask(compleated , total_task);
-        mEManager.CrossCount(lives);
+        //mEManager.CompleatedTask(compleated , total_task);
+        //mEManager.CrossCount(lives);
+        //mSliderController.UpdateProgress(done);
     }
    
 
