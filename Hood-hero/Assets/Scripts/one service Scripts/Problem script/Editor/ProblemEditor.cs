@@ -14,7 +14,10 @@ public class ProblemEditor : Editor
     SerializedProperty closeUpImage;
     SerializedProperty farAwayImage;
     SerializedProperty details;
-
+    SerializedProperty TimeToDecrease;
+    SerializedProperty startingColor;
+    SerializedProperty endingColor;
+    SerializedProperty scoreToGive;
     bool imageDetail = false;
     private void OnEnable()
     {
@@ -25,6 +28,10 @@ public class ProblemEditor : Editor
         closeUpImage = serializedObject.FindProperty("closeUpImage");
         farAwayImage = serializedObject.FindProperty("farAwayImage");
         details = serializedObject.FindProperty("details");
+        TimeToDecrease = serializedObject.FindProperty("TimeToDecrease");
+        startingColor = serializedObject.FindProperty("startingColor");
+        endingColor = serializedObject.FindProperty("endingColor");
+        scoreToGive = serializedObject.FindProperty("scoreToGive");
     }
 
     public override void OnInspectorGUI()
@@ -35,10 +42,14 @@ public class ProblemEditor : Editor
 
         EditorGUILayout.PropertyField(mainProblem);
         EditorGUILayout.PropertyField(subProblem);
+        EditorGUILayout.PropertyField(scoreToGive);
         EditorGUILayout.PropertyField(isSeriousProblem);
         if (problem.IsSeriousProblem)
         {
             EditorGUILayout.PropertyField(timer);
+            EditorGUILayout.PropertyField(TimeToDecrease);
+            EditorGUILayout.PropertyField(startingColor);
+            EditorGUILayout.PropertyField(endingColor);
         }
 
         imageDetail= EditorGUILayout.BeginFoldoutHeaderGroup(imageDetail, "Image detail");

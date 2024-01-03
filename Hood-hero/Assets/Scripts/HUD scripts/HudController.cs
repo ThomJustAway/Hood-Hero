@@ -1,0 +1,48 @@
+using pattern;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class HudController : MonoBehaviour
+{
+    [SerializeField] private GameObject winningScreen;
+    [SerializeField] private GameObject losingScreen;
+
+    private void Start()
+    {
+        EventManager.instance.AddListener(TypeOfEvent.WinEvent, OnWin);
+        EventManager.instance.AddListener(TypeOfEvent.LoseEvent, OnLose);
+    }
+
+    private void OnWin()
+    {
+        winningScreen.SetActive(true);
+        Time.timeScale = 0f; //stop the game 
+    }
+
+    private void OnLose()
+    {
+        losingScreen.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+
+    public void OnClickNextLevel()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void OnClickRestartBtn()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void OnClickHomeBtn()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+}

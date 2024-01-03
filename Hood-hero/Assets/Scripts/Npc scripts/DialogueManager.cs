@@ -15,42 +15,53 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] public Image actorImage;
     [SerializeField] public Text actorName;
     [SerializeField] public Text messageText;
-    [SerializeField] public RectTransform backgroundBox; 
+    [SerializeField] public RectTransform backgroundBox;
 
-    private Message[] currentMessages;
-    //Actor[] currentActors; 
+    public Message[] currentMessages;
     public int activeMessage = 0;
-    //private bool isActive = false;
+    public bool isActive = false;
+    private bool canProgressDialogue = false;
+
     void Start()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
         }
         else
         {
-            print("cant have more than one instance of dialogue manager");
-            Destroy(Instance);  
+            print("Can't have more than one instance of dialogue manager");
+            Destroy(Instance);
         }
         backgroundBox.transform.localScale = Vector3.zero;
     }
 
     private void Update()
     {
-        //change this later
-        if(messageText != null && Input.GetKeyUp(KeyCode.Space))
+        // For space
+        if (messageText != null && Input.GetKeyUp(KeyCode.Space))
         {
-            //will try and do next message
             NextMessage();
+        }
+
+        // For tapping
+        if (messageText != null && Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began)
+            {
+                NextMessage();
+            }
         }
     }
     public void OpenDialogueSession(Message[] messages)
     {
-        currentMessages = messages; 
-        activeMessage = 0; 
-        DisplayMessage(); 
+        currentMessages = messages;
+        activeMessage = 0;
+        DisplayMessage();
         backgroundBox.LeanScale(Vector3.one, 0.5f).setEaseInExpo();
-    } 
+    }
 
     public void DisplayMessage()
     {
@@ -62,25 +73,69 @@ public class DialogueManager : MonoBehaviour
 
         AnimateTextColor();
     }
+    public void SetDialogueProgression(bool enableProgression)
+    {
+        canProgressDialogue = enableProgression;
+    }
 
-    private void NextMessage()
-    {        
-        activeMessage++;
-        if(activeMessage < currentMessages.Length)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("NPC"))
         {
-            DisplayMessage();
+            SetDialogueProgression(true);
         }
-        else
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("NPC"))
         {
-            CloseDialogSession();
+            SetDialogueProgression(false);
         }
+    }
+
+    public void NextMessage()
+    {
+        if ((canProgressDialogue || (currentMessages != null && activeMessage < currentMessages.Length)) && activeMessage >= 0 && activeMessage < currentMessages.Length)
+        {
+            {
+                activeMessage++;
+                if (activeMessage < currentMessages.Length)
+                {
+                    DisplayMessage();
+                }
+                else
+                {
+                    CloseDialogSession();
+                }
+            }
+        }
+    }
+
+    public void ResetDialogue()
+    {
+        activeMessage = 0;
+        currentMessages = null;
+        isActive = false;
     }
 
     private void CloseDialogSession()
     {
         currentMessages = null;
-        //play the background fade
-        backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInExpo(); 
+
+        // Play the background fade
+        backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInExpo();
+
+        // Access ActivateGuide script to signal the end of dialogue
+        ActivateGuide activateGuide = GameObject.FindGameObjectWithTag("Player").GetComponent<ActivateGuide>();
+        if (activateGuide != null)
+        {
+            activateGuide.DialogueComplete(); // Signal the end of dialogue 
+        }
+        else
+        {
+            Debug.LogError("Script not found!");
+        }
     }
 
     void AnimateTextColor()

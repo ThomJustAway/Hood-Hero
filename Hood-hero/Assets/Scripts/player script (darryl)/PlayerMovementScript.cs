@@ -1,6 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
+
 using UnityEngine;
 
 namespace movement{
@@ -25,30 +24,32 @@ namespace movement{
         [SerializeField] private AnimatorOverrideController spriteDown;
         #endregion
         public DirectionType playerFacing { get; private set; } = DirectionType.None;
-
-        private float zIndex = 0f;
+        private float zIndex = 0;
+        [SerializeField] private LayerMask maskToIncludeForMovement;
         void Start()
         {
-            zIndex = transform.position.z;
             cellPlayerIsIn = gridForReference.WorldToCell(transform.position);
             transform.position = gridForReference.GetCellCenterWorld(cellPlayerIsIn);
+            zIndex = -1.89f; //change this later
+            Vector3 currentposition = transform.position;
+            transform.position = new Vector3(currentposition.x, currentposition.y, zIndex);
+            
         }
 
         private void Update()
         {
             HandleInputForTesting();
-
         }
-
 
         #region movement
         private void HandleInputForTesting()
         {
-            if (Input.GetKeyDown(KeyCode.W)) Move(DirectionType.Up);
-            else if (Input.GetKeyDown(KeyCode.A)) Move(DirectionType.Left);
-            else if (Input.GetKeyDown(KeyCode.S)) Move(DirectionType.Down);
-            else if (Input.GetKeyDown(KeyCode.D)) Move(DirectionType.Right);
+            if (Input.GetKey(KeyCode.W)) Move(DirectionType.Up);
+            else if (Input.GetKey(KeyCode.A)) Move(DirectionType.Left);
+            else if (Input.GetKey(KeyCode.S)) Move(DirectionType.Down);
+            else if (Input.GetKey(KeyCode.D)) Move(DirectionType.Right);
         }
+
         private void Move(DirectionType TypeOfMovement)
         {
             if (TypeOfMovement == DirectionType.None) {
@@ -77,6 +78,7 @@ namespace movement{
                     break;
                 default: break;
             }
+
 
             StartCoroutine(StartMovingToNextCell(nextCell , TypeOfMovement));
         }
@@ -111,23 +113,52 @@ namespace movement{
 
             animator.SetBool(parameterKeyForAnimation, true);
 
-            while(elapseTime < timeToMove)
+            //do check 
+
+            Vector2 directionOfRaycast = nextPositionToMove - currentPosition;
+            var hitObject = Physics2D.Raycast(currentPosition,
+                directionOfRaycast.normalized,
+                directionOfRaycast.magnitude,
+                maskToIncludeForMovement);
+
+            bool dontMove = false;
+
+            if (hitObject.collider != null)
             {
-                transform.position = Vector3.Lerp(currentPosition,
-                    nextPositionToMove,
-                    (elapseTime / timeToMove)
-                    );
-                elapseTime += Time.deltaTime;
-                yield return null;
+                dontMove = true;
             }
-            //now make sure the player is at this grid
-            transform.position = nextPositionToMove;
 
-            //make sure the script know there is no more movement
-            //and prepare to listen for the next movement
-            movementState = DirectionType.None; 
-            cellPlayerIsIn = nextCellToMove;
+            if (!dontMove)
+            {//can move
+                //move the player
+                while (elapseTime < timeToMove)
+                {
+                    transform.position = Vector3.Lerp(currentPosition,
+                        nextPositionToMove,
+                        (elapseTime / timeToMove)
+                        );
+                    elapseTime += Time.deltaTime;
+                    yield return null;
+                }
+                //now make sure the player is at this grid
+                transform.position = nextPositionToMove;
 
+                //make sure the script know there is no more movement
+                //and prepare to listen for the next movement
+                movementState = DirectionType.None;
+                cellPlayerIsIn = nextCellToMove;
+            }
+            else
+            {
+                //move
+                while (elapseTime < timeToMove)
+                {
+                    elapseTime += Time.deltaTime;
+                    yield return null;
+                }
+                movementState = DirectionType.None;
+
+            }
 
             animator.SetBool(parameterKeyForAnimation, false);
             //make sure the sprite of the player is facing at a 

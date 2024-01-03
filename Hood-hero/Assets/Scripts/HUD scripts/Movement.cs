@@ -10,6 +10,9 @@ namespace HoodHeroUI
 
         [SerializeField]
         public float mWalkSpeed = 10f;
+
+
+
         void Update()
         {
             Move();

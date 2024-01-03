@@ -2,6 +2,7 @@ using Assets.Problems.Scripts.Problem_script.Popup.buttons;
 using Assets.Scripts;
 using Assets.Scripts.Problem_script;
 using HoodHeroUI;
+using pattern;
 using Problem;
 using System.Collections;
 using System.Collections.Generic;
@@ -66,7 +67,7 @@ public class OneServiceApp : MonoBehaviour
     [SerializeField] private GameObject parent;
     #endregion
 
-    [SerializeField] SliderManager mSliderManager;
+    //[SerializeField] SliderManager mSliderManager;
     private void Awake()
     {
         if(instance == null)
@@ -193,8 +194,7 @@ public class OneServiceApp : MonoBehaviour
 
         ChangingActiveOfImage(false); //for the removing all changes to the image
         DestroyAllDetailButton(); // to remove the old detail button and make new one for future use.
-
-        parent.SetActive(false);
+        parent.SetActive(false); //dont show the ui in game scene
         
     }
 
@@ -208,12 +208,12 @@ public class OneServiceApp : MonoBehaviour
             selectedDetail.isCorrect //check if the selectedDetail is correct
             )
         {//if the player selected the problem correctly
-            mSliderManager.CompleteTask();
+            //mSliderManager.CompleteTask();            
             ProblemFound.IsSolve();
         }
         else
         {
-            mSliderManager.ActivatedError();
+            EventManager.instance.AlertListeners(TypeOfEvent.MistakeEvent);
         }
         CloseApp();
     }

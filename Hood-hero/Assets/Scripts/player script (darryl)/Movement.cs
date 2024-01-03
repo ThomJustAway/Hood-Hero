@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class Move : MonoBehaviour
 {
     
-    public EManager mEManager;
+    //public EManager mEManager;
     public Rigidbody2D rb;
     //public Sprite playerSprite;
     public Animator player;
@@ -27,16 +27,16 @@ public class Move : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        mEManager = GetComponent<EManager>();
+        //mEManager = GetComponent<EManager>();
         //playerSprite = GetComponent<Sprite>();
     }
     
     // Update is called once per frame
-    void Update()
-    {
-        mEManager.CompleatedTask(compleated , total_task);
-        mEManager.CrossCount(lives);
-    }
+    //void Update()
+    //{
+    //    mEManager.CompleatedTask(compleated , total_task);
+    //    mEManager.CrossCount(lives);
+    //}
    
 
    
@@ -47,6 +47,7 @@ public class Move : MonoBehaviour
         rb.velocity = Vector2.zero;
         //playerSprite.
     }
+
     public void MoveUp()
     {
         rb.velocity = Vector2.up * mWalkSpeed;

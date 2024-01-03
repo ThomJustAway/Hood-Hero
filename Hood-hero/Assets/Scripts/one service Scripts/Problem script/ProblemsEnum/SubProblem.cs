@@ -14,7 +14,10 @@ namespace Problem
 
         //Roads & footpaths
         FaultyStreetLight,
-        FootPathMaintenance
+        FootPathMaintenance,
+
+        //drains & sewers
+        Flooding
     }
 }
 

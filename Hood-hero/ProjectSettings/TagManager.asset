@@ -13,9 +13,9 @@ TagManager:
   - Water
   - UI
   - NPC
-  - 
-  - 
-  - 
+  - Road
+  - Street
+  - Obstacles
   - 
   - 
   - 
@@ -47,4 +47,7 @@ TagManager:
     locked: 0
   - name: HUD Ui
     uniqueID: 3945535187
+    locked: 0
+  - name: Obstacles
+    uniqueID: 4178326691
     locked: 0

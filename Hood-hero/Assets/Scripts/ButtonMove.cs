@@ -1,30 +1,40 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-public class ButtonMove : MonoBehaviour
+public class ButtonMove : MonoBehaviour, IPointerExitHandler, IPointerDownHandler
 {
-    public Button Forward;
-    public GameObject Player;
-    // Start is called before the first frame update
-    void Start()
-    {
-        Player = GetComponent<GameObject>();
-        Button btn = Forward.GetComponent<Button>();
-        btn.onClick.AddListener(ForwardOnClick);
-    }
-    public void ForwardOnClick()
-    {
+    //ignore this, some reason it does cant work :(
+    [SerializeField] private UnityEvent yourEvent;
+    private bool isHolding = false;
 
-        //Vector2 move = new Vector2(5,0);
-        Debug.Log("test");
+    private void Update()
+    {
+        if (isHolding)
+        {
+            OnPointerDown();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnPointerDown()
     {
-        
+        yourEvent?.Invoke();
+    }
+
+
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        isHolding = false;
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        isHolding = true;
     }
 }

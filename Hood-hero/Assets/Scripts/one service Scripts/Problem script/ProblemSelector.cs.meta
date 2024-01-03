@@ -3,7 +3,10 @@ guid: f27f31d17ab331d48a734dede6108b59
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - clockPrefab: {fileID: 3517890674320360576, guid: cb9f0dd5ce04127459dd51161afb7d34, type: 3}
+  - closeUpImage: {instanceID: 0}
+  - farAwayImage: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

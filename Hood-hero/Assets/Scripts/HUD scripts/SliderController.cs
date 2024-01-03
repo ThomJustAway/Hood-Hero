@@ -10,42 +10,25 @@ namespace HoodHeroUI
         int progress;
         public Slider slider;
         public float fillSpeed = 1f;
+        public int taskDone;
 
-        public void UpdateProgress(int completed, int total_Task)  //5/7.5/10
+        public void UpdateProgress(int taskDone)  //5/7.5/10
         {
-            if (completed == total_Task / 2)
+           
+            progress = taskDone;
+
+
+            if (slider.value < progress)
             {
-                progress = 5;
 
-                if (slider.value < progress)
-                {
+               slider.value += fillSpeed * Time.deltaTime;
 
-                    slider.value += fillSpeed * Time.deltaTime;
-
-                }
             }
-            if (completed == total_Task * 0.7)
+            if(slider.value > progress)
             {
-                progress = 7;
-
-                if (slider.value < progress)
-                {
-
-                    slider.value += fillSpeed * Time.deltaTime;
-
-                }
+                slider.value += fillSpeed * Time.deltaTime;
             }
-            if (completed == total_Task)
-            {
-                progress = 10;
-
-                if (slider.value < progress)
-                {
-
-                    slider.value += fillSpeed * Time.deltaTime;
-
-                }
-            }
+           
         }
     }
 

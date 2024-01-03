@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using movement;
+using System.Collections;
 using System.Linq.Expressions;
 using UnityEditor.Build.Content;
 using UnityEngine;
@@ -14,11 +15,17 @@ namespace Assets.Scripts
         [SerializeField] private GameObject buttonMoveLocation;
         [SerializeField] private float distanceToSense = 1f;
         [SerializeField] private LayerMask defaultLayerMask;
-        private bool isButtonAway = false;
+
+        private PlayerMovementScript playerMovement;
+
+        public bool isButtonAway = false;
         private Vector3 buttonInitialPosition;
         private Vector3 buttonMoveToPosition;
 
         private OneServiceApp app;
+
+        [SerializeField] private GameObject popupImage;
+        private Vector3 popupImageInitialPosition;
 
         private void Awake()
         {
@@ -39,8 +46,9 @@ namespace Assets.Scripts
             buttonInitialPosition = button.transform.position;
             //Debug.Log("Initial Position = " + buttonInitialPosition);
             buttonMoveToPosition = buttonMoveLocation.transform.position;
-
+            playerMovement = GetComponent<PlayerMovementScript>();
             app = OneServiceApp.instance;
+            popupImageInitialPosition = popupImage.transform.position;
         }
 
         // Update is called once per frame
@@ -54,20 +62,52 @@ namespace Assets.Scripts
         {
             if (isButtonAway == false)
             {
-                button.transform.position = Vector3.MoveTowards(button.transform.position, buttonInitialPosition, Time.deltaTime * 1500.0f);
+                //button.transform.position = Vector3.MoveTowards(button.transform.position, buttonInitialPosition, Time.deltaTime * 1500.0f);
+                ProblemPopupMoveToInitPosition();
             }
             else if (isButtonAway == true)
             {
-                button.transform.position = Vector3.MoveTowards(button.transform.position, buttonMoveToPosition, Time.deltaTime * 1500.0f);
+                //button.transform.position = Vector3.MoveTowards(button.transform.position, buttonMoveToPosition, Time.deltaTime * 1500.0f);
+                ProblemPopupMoveToGameObject();
             }
         }
 
+        void ProblemPopupMoveToInitPosition()
+        {
+            popupImage.transform.position = popupImageInitialPosition;
+        }
+
+        void ProblemPopupMoveToGameObject()
+        {
+            popupImage.transform.position = transform.position + new Vector3(0f, 1.3f, 0f);
+        }
         private void CheckingProblem()
         {
             // add extra perimeter here to only do raycasting on problems only
             //will need to change this transform.up later on
+            Vector3 direction = Vector3.down;
+
+            switch (playerMovement.playerFacing)
+            {
+                case DirectionType.Left:
+                    direction = Vector3.left; 
+                    break;
+                case DirectionType.Right:
+                    direction = Vector3.right;
+                    break;
+                case DirectionType.Up:
+                    direction = Vector3.up;
+                    break;
+                case DirectionType.Down:
+                    direction = Vector3.down;
+                    break;
+                default:
+                    break;
+            }
+
+
             RaycastHit2D hit = Physics2D.Raycast(transform.position, 
-                transform.up, 
+                direction, 
                 distanceToSense,
                 defaultLayerMask,
                 - 3f,
