@@ -61,12 +61,13 @@ public class SliderManager : MonoBehaviour
     private void CalculatingTotalPoints()
     {
         var problems = FindObjectsOfType<ProblemSelector>();
-        TotalAmountOfProblem = problems.Length;
+        TotalAmountOfProblem = 0;
         TotalAmountOfPoints = 0;
         foreach(var problem in problems)
         {
             if(problem.MainProblem != Problem.MainProblem.FakeProblem)
             {
+                TotalAmountOfProblem++;
                 TotalAmountOfPoints += problem.ScoreToGive;
             }
         }
@@ -109,9 +110,9 @@ public class SliderManager : MonoBehaviour
             SecondStar.color = activatedStarColor;
             FirstStar.color = activatedStarColor;
 
-            FirstStarWinningScreen.color = activatedStarColor;
             ThirdStarWinningScreen.color = activatedStarColor;
             SecondStarWinningScreen.color = activatedStarColor;
+            FirstStarWinningScreen.color = activatedStarColor;
         }
         else if (amountOfScoreEarned >= TotalAmountOfPoints * 0.70)// when the completed task is 
         {
@@ -123,7 +124,7 @@ public class SliderManager : MonoBehaviour
             ThirdStarWinningScreen.color = activatedStarColor;
             SecondStarWinningScreen.color = activatedStarColor;
         }
-        else if (amountOfScoreEarned == TotalAmountOfPoints / 2)// when the complete task is at least 50%
+        else if (amountOfScoreEarned >= TotalAmountOfPoints / 2)// when the complete task is at least 50%
         {
             ThirdStar.color = unactivatedStarColor;
             SecondStar.color = unactivatedStarColor;
@@ -146,8 +147,12 @@ public class SliderManager : MonoBehaviour
     }
 
     //call this function if the player have error
+
+    private const int amountToPunish = 20;
     public void ActivatedError()
     {
+        PunishPlayer();
+        HandleStars();
         cross++;
         if(cross == 3)
         {
@@ -168,6 +173,12 @@ public class SliderManager : MonoBehaviour
         
     }
 
+    public void PunishPlayer()
+    {
+        amountOfScoreEarned -= amountToPunish;
+        if(amountOfScoreEarned < 0 ) amountOfScoreEarned = 0;
+        SetSliderUI();
+    }
 
     private void GameEnd()
     {

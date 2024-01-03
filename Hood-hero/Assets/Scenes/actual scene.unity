@@ -3252,7 +3252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiText: {fileID: 122007250}
-  Duration: 40
+  Duration: 70
 --- !u!1 &214009924
 GameObject:
   m_ObjectHideFlags: 0
@@ -35279,12 +35279,12 @@ MonoBehaviour:
   SecondStar: {fileID: 1740662368}
   ThirdStar: {fileID: 1159680543}
   activatedStarColor: {r: 0.3262402, g: 0.98742133, b: 0.040366102, a: 1}
-  unactivatedStarColor: {r: 0, g: 0, b: 0, a: 0}
+  unactivatedStarColor: {r: 1, g: 1, b: 1, a: 1}
   FirstCross: {fileID: 839573827}
   SecondCross: {fileID: 942065659}
   ThirdCross: {fileID: 613379523}
   activatedCrossColor: {r: 1, g: 0, b: 0, a: 1}
-  unactivatedCrossColor: {r: 1, g: 1, b: 1, a: 0}
+  unactivatedCrossColor: {r: 0.81886786, g: 0.81886786, b: 0.81886786, a: 1}
   FirstStarWinningScreen: {fileID: 340811927}
   SecondStarWinningScreen: {fileID: 1287625971}
   ThirdStarWinningScreen: {fileID: 1575702685}
