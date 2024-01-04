@@ -214,6 +214,13 @@ public class OneServiceApp : MonoBehaviour
         else
         {
             EventManager.instance.AlertListeners(TypeOfEvent.MistakeEvent);
+            if(ProblemFound.MainProblem == MainProblem.FakeProblem)
+            {
+                PopUpScript.instance.StartMessage(
+                    "Dont report everything you see",
+                    3
+                    );
+            }
         }
         CloseApp();
     }

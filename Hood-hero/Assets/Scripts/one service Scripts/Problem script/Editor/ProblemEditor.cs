@@ -17,6 +17,7 @@ public class ProblemEditor : Editor
     SerializedProperty TimeToDecrease;
     SerializedProperty startingColor;
     SerializedProperty endingColor;
+    SerializedProperty scoreToGive;
     bool imageDetail = false;
     private void OnEnable()
     {
@@ -30,6 +31,7 @@ public class ProblemEditor : Editor
         TimeToDecrease = serializedObject.FindProperty("TimeToDecrease");
         startingColor = serializedObject.FindProperty("startingColor");
         endingColor = serializedObject.FindProperty("endingColor");
+        scoreToGive = serializedObject.FindProperty("scoreToGive");
     }
 
     public override void OnInspectorGUI()
@@ -40,6 +42,7 @@ public class ProblemEditor : Editor
 
         EditorGUILayout.PropertyField(mainProblem);
         EditorGUILayout.PropertyField(subProblem);
+        EditorGUILayout.PropertyField(scoreToGive);
         EditorGUILayout.PropertyField(isSeriousProblem);
         if (problem.IsSeriousProblem)
         {

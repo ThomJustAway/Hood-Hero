@@ -11,7 +11,7 @@ public class SliderManager : MonoBehaviour
 {
 
     //change this later on
-    [SerializeField]private TextMeshProUGUI amountOfProblemText;
+    [SerializeField]private TextMeshProUGUI pointText;
 
     [Header("stars")]
     [SerializeField] private Image FirstStar;
@@ -33,18 +33,22 @@ public class SliderManager : MonoBehaviour
     [SerializeField] private Image SecondStarWinningScreen;
     [SerializeField] private Image ThirdStarWinningScreen;
     [Header("Task to complete")]
-    private int completedTask = 0;
-    [SerializeField]private int totalTask;
 
     [SerializeField]private Slider mSlider;
 
     private int cross = 0; //how many life they have
 
+    private int amountOfScoreEarned = 0;
+    private int TotalAmountOfPoints;
+
+    private int numberOfProblemSolve = 0;
+    private int TotalAmountOfProblem;
+
     private void Start()
     {
-        CalculatingTotalTask();
+        CalculatingTotalPoints();
         mSlider.minValue = 0;
-        mSlider.maxValue = totalTask;
+        mSlider.maxValue = TotalAmountOfPoints;
         mSlider.value = 0;
         SetSliderUI();
 
@@ -54,15 +58,17 @@ public class SliderManager : MonoBehaviour
         EventManager.instance.AddScoringListener(CompleteTask);
     }
 
-    private void CalculatingTotalTask()
+    private void CalculatingTotalPoints()
     {
         var problems = FindObjectsOfType<ProblemSelector>();
-        totalTask = 0;
+        TotalAmountOfProblem = 0;
+        TotalAmountOfPoints = 0;
         foreach(var problem in problems)
         {
             if(problem.MainProblem != Problem.MainProblem.FakeProblem)
             {
-                totalTask++;
+                TotalAmountOfProblem++;
+                TotalAmountOfPoints += problem.ScoreToGive;
             }
         }
     }
@@ -70,49 +76,83 @@ public class SliderManager : MonoBehaviour
     // call this function once task is completed
     public void CompleteTask(ProblemSelector problem)
     {
-        DisplayCompletetask();
+        amountOfScoreEarned += problem.ScoreToGive;
+        numberOfProblemSolve += 1;
+        if(numberOfProblemSolve == TotalAmountOfProblem)
+        {
+            //if have solve all the problem in the city then alert winevent
+            EventManager.instance.RemovingScoringListener(CompleteTask);
+            EventManager.instance.AlertListeners(TypeOfEvent.WinEvent);
+        }
+        DisplayCompletetask(problem);
     }
 
     //have to use this for testing purposes, can remove this afterwards!
-    private void DisplayCompletetask()
+    private void DisplayCompletetask(ProblemSelector solveProblem)
     {
         //use the problem here
-        completedTask++; //finish a completed task
+        //finish a completed task
+        HandleStars();
+        SetSliderUI();
+    }
+    private void SetSliderUI() //change this later
+    {
+        //add coroutine to the progress to show the animation
+        pointText.text = amountOfScoreEarned.ToString(); //set the text
+        mSlider.value = amountOfScoreEarned; //show progress to the progress bar
+    }
 
-        if (completedTask == totalTask)//100%
+    private void HandleStars()
+    {
+        if (amountOfScoreEarned == TotalAmountOfPoints)
         {
             ThirdStar.color = activatedStarColor;
             SecondStar.color = activatedStarColor;
             FirstStar.color = activatedStarColor;
 
-            FirstStarWinningScreen.color = activatedStarColor;
             ThirdStarWinningScreen.color = activatedStarColor;
             SecondStarWinningScreen.color = activatedStarColor;
-
-            //has already won!
-            EventManager.instance.RemovingScoringListener(CompleteTask);
-            EventManager.instance.AlertListeners(TypeOfEvent.WinEvent);
+            FirstStarWinningScreen.color = activatedStarColor;
         }
-        else if (completedTask >= totalTask * 0.70)// when the completed task is 
+        else if (amountOfScoreEarned >= TotalAmountOfPoints * 0.70)// when the completed task is 
         {
+            ThirdStar.color = unactivatedStarColor;
             SecondStar.color = activatedStarColor;
             FirstStar.color = activatedStarColor;
 
+            FirstStarWinningScreen.color = unactivatedStarColor;
+            ThirdStarWinningScreen.color = activatedStarColor;
             SecondStarWinningScreen.color = activatedStarColor;
-            FirstStarWinningScreen.color = activatedStarColor;
         }
-        else if (completedTask == totalTask / 2)// when the complete task is at least 50%
+        else if (amountOfScoreEarned >= TotalAmountOfPoints / 2)// when the complete task is at least 50%
         {
-            FirstStarWinningScreen.color = activatedStarColor;
+            ThirdStar.color = unactivatedStarColor;
+            SecondStar.color = unactivatedStarColor;
             FirstStar.color = activatedStarColor;
-        }
 
-        SetSliderUI();
+            ThirdStarWinningScreen.color = unactivatedStarColor;
+            SecondStarWinningScreen.color = unactivatedStarColor;
+            FirstStarWinningScreen.color = activatedStarColor;
+        }
+        else
+        {
+            ThirdStar.color = unactivatedStarColor;
+            SecondStar.color = unactivatedStarColor;
+            FirstStar.color = unactivatedStarColor;
+
+            FirstStarWinningScreen.color = unactivatedStarColor;
+            ThirdStarWinningScreen.color = unactivatedStarColor;
+            SecondStarWinningScreen.color = unactivatedStarColor;
+        }
     }
 
     //call this function if the player have error
+
+    private const int amountToPunish = 20;
     public void ActivatedError()
     {
+        PunishPlayer();
+        HandleStars();
         cross++;
         if(cross == 3)
         {
@@ -133,16 +173,16 @@ public class SliderManager : MonoBehaviour
         
     }
 
-    private void SetSliderUI()
+    public void PunishPlayer()
     {
-        //add coroutine to the progress to show the animation
-        amountOfProblemText.text = $"Problems:\n {completedTask}/{totalTask}"; //set the text
-        mSlider.value = completedTask; //show progress to the progress bar
+        amountOfScoreEarned -= amountToPunish;
+        if(amountOfScoreEarned < 0 ) amountOfScoreEarned = 0;
+        SetSliderUI();
     }
 
     private void GameEnd()
     {
-        if(completedTask >= totalTask / 2)
+        if(amountOfScoreEarned >= TotalAmountOfPoints / 2)
         {
             EventManager.instance.AlertListeners(TypeOfEvent.WinEvent);
         }

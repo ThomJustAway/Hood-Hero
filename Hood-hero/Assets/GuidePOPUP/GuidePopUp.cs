@@ -1,0 +1,34 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class GuidePopUp : MonoBehaviour
+{
+    public GameObject modalWindow;
+    public Text headerText;
+    public Image image;
+    public Text bodyText;
+
+    public static GuidePopUp instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject); // Destroy the game object this script is attached to
+    }
+
+    public void ShowModal(string header, Sprite imageSprite, string body)
+    {
+        headerText.text = header;
+        image.sprite = imageSprite;
+        bodyText.text = body;
+
+        modalWindow.SetActive(true);
+    }
+
+    public void HideModal()
+    {
+        modalWindow.SetActive(false);
+    }
+}

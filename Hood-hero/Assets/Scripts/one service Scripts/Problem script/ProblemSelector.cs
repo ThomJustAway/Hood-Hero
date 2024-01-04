@@ -20,9 +20,10 @@ public class ProblemSelector : MonoBehaviour
 
     [SerializeField] private bool isSeriousProblem = false;
     public bool IsSeriousProblem { get { return isSeriousProblem; } }
+    [SerializeField] private int scoreToGive;
+    public int ScoreToGive { get { return scoreToGive; } }
 
     [SerializeField]  private int timer = 0; //how many second before the trigger occur
-
     #region clock
     private Slider slider;
     private Image sliderColor;
