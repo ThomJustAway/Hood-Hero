@@ -79,7 +79,7 @@ namespace Assets.Scripts
 
         void ProblemPopupMoveToGameObject()
         {
-            popupImage.transform.position = transform.position + new Vector3(0f, 1.3f, 0f);
+            popupImage.transform.position = transform.position + new Vector3(d0f, 1.3f, 0f);
         }
         private void CheckingProblem()
         {
