@@ -291,6 +291,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -116640605
       objectReference: {fileID: 0}
+    - target: {fileID: 4469707027465660425, guid: 80cc5cedf4a4a9142b8ab97fdf3245a7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 008426f4351d0fa47b11f757a024b4fb, type: 3}
     - target: {fileID: 4479333427420464161, guid: 80cc5cedf4a4a9142b8ab97fdf3245a7, type: 3}
       propertyPath: ReportUI
       value: 
@@ -310,6 +314,10 @@ PrefabInstance:
     - target: {fileID: 6563093474388681448, guid: 80cc5cedf4a4a9142b8ab97fdf3245a7, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520711322980390619, guid: 80cc5cedf4a4a9142b8ab97fdf3245a7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 7520711322980390619, guid: 80cc5cedf4a4a9142b8ab97fdf3245a7, type: 3}
       propertyPath: m_LocalScale.x
@@ -956,7 +964,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 2147483649
   - first: {x: 5, y: -9, z: 0}
     second:
       serializedVersion: 2
@@ -2570,7 +2578,7 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: da576458b6ec4c848873856baed57a0c, type: 2}
+    m_Data: {fileID: 11400000, guid: fbc4ee56a5c775843a98dbcd5f6ea9d3, type: 2}
   - m_RefCount: 15
     m_Data: {fileID: 11400000, guid: af0ad3a602795d042ada0c97c3aef86a, type: 2}
   - m_RefCount: 6
@@ -2643,7 +2651,7 @@ Tilemap:
   - m_RefCount: 3
     m_Data: {fileID: -2707361895621633745, guid: 2529f58c0f0f4784d925363eac539680, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 496261832, guid: 2529f58c0f0f4784d925363eac539680, type: 3}
+    m_Data: {fileID: 21300000, guid: f5bda4620ecb2c547a6867f16f471802, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 6845562173592431509, guid: 2529f58c0f0f4784d925363eac539680, type: 3}
   - m_RefCount: 1
