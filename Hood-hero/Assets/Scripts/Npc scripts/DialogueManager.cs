@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using pattern;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -128,6 +129,8 @@ public class DialogueManager : MonoBehaviour
 
         // Access ActivateGuide script to signal the end of dialogue
         ActivateGuide activateGuide = GameObject.FindGameObjectWithTag("Player").GetComponent<ActivateGuide>();
+        EventManager.instance.AlertListeners(TypeOfEvent.DialogEndEvent);
+
         if (activateGuide != null)
         {
             activateGuide.DialogueComplete(); // Signal the end of dialogue 

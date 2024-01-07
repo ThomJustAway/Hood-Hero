@@ -36467,6 +36467,7 @@ GameObject:
   - component: {fileID: 1578796708}
   - component: {fileID: 1578796709}
   - component: {fileID: 1578796710}
+  - component: {fileID: 1578796711}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -36609,6 +36610,22 @@ MonoBehaviour:
   maskToIncludeForMovement:
     serializedVersion: 2
     m_Bits: 1015
+--- !u!114 &1578796711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578796697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b76e163a08958dd4abcf9a4ae9ce237f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowContainer: {fileID: 1656814237}
+  arrow: {fileID: 1249552776}
+  Problem: {fileID: 0}
+  hideDist: 0
 --- !u!1 &1596602539
 GameObject:
   m_ObjectHideFlags: 0
@@ -36822,7 +36839,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1656814238}
-  - component: {fileID: 1656814239}
   m_Layer: 3
   m_Name: ProblemChecker
   m_TagString: Untagged
@@ -36846,20 +36862,6 @@ Transform:
   - {fileID: 1249552777}
   m_Father: {fileID: 1578796701}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1656814239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1656814237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b76e163a08958dd4abcf9a4ae9ce237f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Problem: {fileID: 161791469}
-  hideDist: 2
 --- !u!1 &1657546284
 GameObject:
   m_ObjectHideFlags: 0
@@ -70011,6 +70013,10 @@ PrefabInstance:
       propertyPath: arrowPrefab
       value: 
       objectReference: {fileID: 1249552776}
+    - target: {fileID: 1923378267425014086, guid: 60fc102c617f60c4ebfc2a3b56f306fd, type: 3}
+      propertyPath: problemLocation
+      value: 
+      objectReference: {fileID: 161791469}
     - target: {fileID: 1923378267425014086, guid: 60fc102c617f60c4ebfc2a3b56f306fd, type: 3}
       propertyPath: messages.Array.size
       value: 4

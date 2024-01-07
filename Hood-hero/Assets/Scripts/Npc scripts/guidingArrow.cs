@@ -3,17 +3,30 @@ using UnityEngine;
 
 public class guidingArrow : MonoBehaviour
 {
+    public static guidingArrow instance;
+    [SerializeField] private GameObject arrowContainer;
+    [SerializeField] private GameObject arrow;
     [HideInInspector] public Transform Problem;
     public float hideDist;
     private bool arrowActive = true; // Controls guide arrow visibility
+
+    private void Start()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
 
     void Update()
     {
         if (!arrowActive) return; // If guide arrow deactivated, does nothing
 
         //Debug.Log(Problem.position);
-
-        var dir = Problem.position - transform.position;
 
         //if (dir.magnitude < hideDist)
         //{
@@ -31,35 +44,31 @@ public class guidingArrow : MonoBehaviour
 
     public void StartDatCoroutine(Transform Problem)
     {
+        print("hello");
         this.Problem = Problem;
         StartCoroutine(TestShowArrow());
     }
 
-    void SetChildrenActive(bool value)
+    void SetArrowActive(bool value)
     {
-        foreach (Transform child in transform)
-        {
-            child.gameObject.SetActive(value);
-        }
+        arrow.SetActive(value);
     }
 
     IEnumerator TestShowArrow()
     {
         Vector3 dir;
-        SetChildrenActive(true);
+        SetArrowActive(true);
 
-        yield return new WaitForSeconds(3);
         float lapsedTime = 0;
         while (lapsedTime < 3)
         {
             dir = Problem.position - transform.position;
             lapsedTime += Time.deltaTime;
             var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            arrowContainer.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-            Debug.Log("I AM RUNNINGNNNNGGG");
             yield return null;
         }
-        SetChildrenActive(false);
+        SetArrowActive(false);
     }
 }
