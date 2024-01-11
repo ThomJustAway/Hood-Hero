@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: CP_V1.0.4_14
+  m_Name: overflowingbin
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 8681978392321763851, guid: 2529f58c0f0f4784d925363eac539680, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f5bda4620ecb2c547a6867f16f471802, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
