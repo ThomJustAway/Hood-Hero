@@ -13,7 +13,10 @@ public class GuidePopUp : MonoBehaviour
     private void Awake()
     {
         if (instance == null)
+        {
             instance = this;
+            Time.timeScale = 0f;
+        }
         else
             Destroy(gameObject); // Destroy the game object this script is attached to
     }
@@ -29,6 +32,7 @@ public class GuidePopUp : MonoBehaviour
 
     public void HideModal()
     {
+        Time.timeScale = 1f;
         modalWindow.SetActive(false);
     }
 }
