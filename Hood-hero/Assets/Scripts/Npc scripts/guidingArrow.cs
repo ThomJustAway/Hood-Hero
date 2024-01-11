@@ -7,7 +7,7 @@ public class guidingArrow : MonoBehaviour
     [SerializeField] private GameObject arrowContainer;
     [SerializeField] private GameObject arrow;
     [HideInInspector] public Transform Problem;
-    public float hideDist;
+    public float timeBeforeDisappear;
     private bool arrowActive = true; // Controls guide arrow visibility
 
     private void Start()
@@ -60,7 +60,8 @@ public class guidingArrow : MonoBehaviour
         SetArrowActive(true);
 
         float lapsedTime = 0;
-        while (lapsedTime < 3)
+        
+        while (lapsedTime < timeBeforeDisappear)
         {
             dir = Problem.position - transform.position;
             lapsedTime += Time.deltaTime;

@@ -1,5 +1,7 @@
 ﻿using movement;
+using System;
 using System.Collections;
+using System.Linq;
 using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,7 +45,6 @@ namespace Assets.Scripts
         void Start()
         {
             buttonInitialPosition = button.transform.position;
-            //Debug.Log("Initial Position = " + buttonInitialPosition);
             buttonMoveToPosition = buttonMoveLocation.transform.position;
             playerMovement = GetComponent<PlayerMovementScript>();
             app = OneServiceApp.instance;
@@ -54,6 +55,7 @@ namespace Assets.Scripts
         void Update()
         {
             CheckingProblem();
+            
             MovingButton();
         }
 
@@ -82,14 +84,44 @@ namespace Assets.Scripts
         }
         private void CheckingProblem()
         {
+            var directions = Enum.GetValues(typeof(DirectionType)).Cast<DirectionType>().ToArray();
+
             // add extra perimeter here to only do raycasting on problems only
             //will need to change this transform.up later on
+            foreach(var directionValue in directions)
+            {
+                Vector3 direction = GetValueFromDirection(directionValue);
+
+                RaycastHit2D hit = Physics2D.Raycast(
+                    transform.position,
+                    direction,
+                    distanceToSense,
+                    defaultLayerMask,
+                    -3f,
+                    3f
+                    );
+
+                if (hit.collider == null)
+                {
+                    DeactivatedApp();
+                }
+                else
+                {//if got hit object
+                    ActivateApp(hit);
+                    break;
+                }
+
+            }
+        }
+
+        private Vector3 GetValueFromDirection(DirectionType directionEnum)
+        {
             Vector3 direction = Vector3.down;
 
-            switch (playerMovement.playerFacing)
+            switch (directionEnum)
             {
                 case DirectionType.Left:
-                    direction = Vector3.left; 
+                    direction = Vector3.left;
                     break;
                 case DirectionType.Right:
                     direction = Vector3.right;
@@ -104,24 +136,7 @@ namespace Assets.Scripts
                     break;
             }
 
-
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, 
-                direction, 
-                distanceToSense,
-                defaultLayerMask,
-                - 3f,
-                3f
-                ); 
-            Debug.DrawRay(transform.position, transform.up * distanceToSense, Color.green);
-
-            if (hit.collider == null)
-            {
-                DeactivatedApp();
-            }
-            else
-            {//if got hit object
-                ActivateApp(hit);
-            }
+            return direction;
         }
 
         private void ActivateApp(RaycastHit2D hit)
