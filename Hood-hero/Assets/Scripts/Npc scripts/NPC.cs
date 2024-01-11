@@ -12,12 +12,14 @@ public class NPC : MonoBehaviour
     [SerializeField] private ProblemSelector problem;
     [SerializeField] private GameObject arrowPrefab;
     [SerializeField] private Transform problemLocation;
-
+    private bool hasCompleteConversation = false;
     //martin improve on this and consider using button instead
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (hasCompleteConversation) return;
+        hasCompleteConversation = true;
         DialogueManager.Instance.OpenDialogueSession(messages);
       
         EventManager.instance.AddListener(TypeOfEvent.DialogEndEvent, CreateArrow);
