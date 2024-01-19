@@ -26,6 +26,7 @@ namespace Assets.Scripts
         private OneServiceApp app;
 
         [SerializeField] private GameObject popupImage;
+        [SerializeField] private Vector2 offset;
         private Vector3 popupImageInitialPosition;
 
         private void Awake()
@@ -80,7 +81,7 @@ namespace Assets.Scripts
 
         void ProblemPopupMoveToGameObject()
         {
-            popupImage.transform.position = transform.position + new Vector3(0f, 1.3f, 0f);
+            popupImage.transform.position = transform.position + (Vector3)offset;
         }
         private void CheckingProblem()
         {

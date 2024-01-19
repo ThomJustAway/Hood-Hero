@@ -7,7 +7,8 @@ namespace Assets.Scripts.one_service_Scripts.pattern
     {
         public static PrefabManager instance;
         public GameObject clockPrefab;
-        public GameObject speechBubblePrefab;
+        public GameObject problemPopUp;
+        public GameObject speechPopUp;
         // Use this for initialization
 
         private void Awake()
