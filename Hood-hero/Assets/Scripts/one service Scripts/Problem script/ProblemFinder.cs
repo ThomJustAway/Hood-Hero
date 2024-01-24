@@ -144,7 +144,6 @@ namespace Assets.Scripts
         {
             if (hit.collider.TryGetComponent<ProblemSelector>(out var problemSelector))
             {//hit a problem
-                print(problemSelector.ToString());
                 isButtonAway = true;
                 selectedProblem = problemSelector;
             }
