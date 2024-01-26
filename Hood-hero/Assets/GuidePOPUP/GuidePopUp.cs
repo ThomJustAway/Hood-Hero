@@ -15,6 +15,7 @@ public class GuidePopUp : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            
             Time.timeScale = 0f;
         }
         else

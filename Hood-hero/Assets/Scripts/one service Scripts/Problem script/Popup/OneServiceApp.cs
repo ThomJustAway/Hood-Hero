@@ -158,7 +158,8 @@ public class OneServiceApp : MonoBehaviour
     {
         if(selectedMainCategory != MainProblem.None && 
             selectedSubCategory != SubProblem.None &&
-            hasTakenPhoto
+            hasTakenPhoto &&
+            selectedDetail.detail != ""
             )
         {
             SubmitCaseButton.SetActive(true);
