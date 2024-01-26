@@ -303,5 +303,9 @@ public class OneServiceApp : MonoBehaviour
 
     #endregion
 
-
+    public void Testing()
+    {
+        print("hello");
+        gameObject.SetActive(true);
+    }
 }
