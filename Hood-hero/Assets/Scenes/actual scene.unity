@@ -3470,8 +3470,8 @@ MonoBehaviour:
   TimeToDecrease: 0.2
   startingColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   endingColor: {r: 1, g: 0, b: 0, a: 1}
-  closeUpImage: {fileID: 21300000, guid: f0f48b8582eedcc429b8f913dbfe36be, type: 3}
-  farAwayImage: {fileID: 21300000, guid: ea65c5cca48475f4a87d5840751047e2, type: 3}
+  closeUpImage: {fileID: 21300000, guid: f7295b3e22ecf2c449596632b76010de, type: 3}
+  farAwayImage: {fileID: 21300000, guid: bb17bb5b49b896548b86c2907cab2885, type: 3}
   details:
   - detail: Overflowing rubbish bin at XXX street
     isCorrect: 1
