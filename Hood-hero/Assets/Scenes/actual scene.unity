@@ -11805,7 +11805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1923378267425014086, guid: 60fc102c617f60c4ebfc2a3b56f306fd, type: 3}
       propertyPath: messages.Array.data[3].message
-      value: Sure do!
+      value: Sure do! The OneService app allows you to do so.
       objectReference: {fileID: 0}
     - target: {fileID: 2487953874012817957, guid: 60fc102c617f60c4ebfc2a3b56f306fd, type: 3}
       propertyPath: m_Sprite
@@ -36951,7 +36951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1923378267425014086, guid: 60fc102c617f60c4ebfc2a3b56f306fd, type: 3}
       propertyPath: messages.Array.data[1].message
-      value: I'll help! Where is it?
+      value: I'll help, I have the OneService app. Where is it?
       objectReference: {fileID: 0}
     - target: {fileID: 1923378267425014086, guid: 60fc102c617f60c4ebfc2a3b56f306fd, type: 3}
       propertyPath: messages.Array.data[2].message
@@ -71999,7 +71999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1923378267425014086, guid: 60fc102c617f60c4ebfc2a3b56f306fd, type: 3}
       propertyPath: messages.Array.data[3].message
-      value: Okay, thanks!
+      value: Okay, thanks! I'll use the OneService app to get it taken care of.
       objectReference: {fileID: 0}
     - target: {fileID: 2487953874012817957, guid: 60fc102c617f60c4ebfc2a3b56f306fd, type: 3}
       propertyPath: m_Sprite
