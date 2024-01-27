@@ -55,6 +55,13 @@ public class TutorialContinue : MonoBehaviour
         }
         ShowMessage();
 
+    } 
+     
+    public void ResetCurrentIndex()
+    {
+        backButton.SetActive(false);
+        currentIndex = 0; 
+        ShowMessage();  
     }
 }
 

@@ -7,6 +7,7 @@ public class GuidePopUp : MonoBehaviour
     public Text headerText;
     public Image image;
     public Text bodyText;
+    public TutorialContinue tutorialCont;
 
     public static GuidePopUp instance;
 
@@ -26,7 +27,7 @@ public class GuidePopUp : MonoBehaviour
     {
         headerText.text = header;
         image.sprite = imageSprite;
-        bodyText.text = body;
+        bodyText.text = body;  
 
         modalWindow.SetActive(true);
     }
@@ -35,5 +36,11 @@ public class GuidePopUp : MonoBehaviour
     {
         Time.timeScale = 1f;
         modalWindow.SetActive(false);
+    } 
+     
+    public void OnBtnClickShowModal()
+    {
+        tutorialCont.ResetCurrentIndex();
+        modalWindow.SetActive(true);
     }
 }
