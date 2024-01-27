@@ -19,7 +19,11 @@ public class NPC : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!problem.gameObject.active) return; //means that the player has solve the problem
+        
         var speechButton = PrefabManager.instance.speechPopUp;
+
+
         speechButton.SetActive(true);
         speechButton.transform.position = transform.position + (Vector3) offset; //offset and make it appear at the npc head.
         var buttonComponent = speechButton.GetComponentInChildren<Button>();
