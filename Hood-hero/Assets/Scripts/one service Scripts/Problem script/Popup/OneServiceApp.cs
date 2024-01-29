@@ -83,6 +83,11 @@ public class OneServiceApp : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        selectedDetail = new DetailOfTheProblem() { detail = "" };
+    }
+
     private void Init()
     {
         foreach(var problem in avaliableProblems)

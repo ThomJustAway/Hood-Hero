@@ -14790,7 +14790,7 @@ PrefabInstance:
       objectReference: {fileID: 1441201004}
     - target: {fileID: 1412092524042261059, guid: 1c068bc17cb33754ea17c4eb011024c3, type: 3}
       propertyPath: tutorialMessages.Array.size
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1412092524042261059, guid: 1c068bc17cb33754ea17c4eb011024c3, type: 3}
       propertyPath: tutorialMessages.Array.data[0].text
@@ -14798,20 +14798,73 @@ PrefabInstance:
         here and it is your job to help.
       objectReference: {fileID: 0}
     - target: {fileID: 1412092524042261059, guid: 1c068bc17cb33754ea17c4eb011024c3, type: 3}
+      propertyPath: tutorialMessages.Array.data[4].text
+      value: Take picture of the problem by pressing the button.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412092524042261059, guid: 1c068bc17cb33754ea17c4eb011024c3, type: 3}
+      propertyPath: tutorialMessages.Array.data[5].text
+      value: Make sure to fill up accurate detail in the <b>extra detail section</b>
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412092524042261059, guid: 1c068bc17cb33754ea17c4eb011024c3, type: 3}
+      propertyPath: tutorialMessages.Array.data[6].text
+      value: If you report the problem correctly, you get a scores.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412092524042261059, guid: 1c068bc17cb33754ea17c4eb011024c3, type: 3}
+      propertyPath: tutorialMessages.Array.data[7].text
+      value: If you report incorrectly, then you get a <b>cross</b>
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412092524042261059, guid: 1c068bc17cb33754ea17c4eb011024c3, type: 3}
       propertyPath: tutorialMessages.Array.data[8].text
+      value: If you do not report the <b>Serious problem</b> quick enough, you will
+        also get a cross!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412092524042261059, guid: 1c068bc17cb33754ea17c4eb011024c3, type: 3}
+      propertyPath: tutorialMessages.Array.data[9].text
+      value: Get three cross and you lose the game.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412092524042261059, guid: 1c068bc17cb33754ea17c4eb011024c3, type: 3}
+      propertyPath: tutorialMessages.Array.data[10].text
       value: Lastly, you can ask NPC to help you find problem! Just click on <b>Speech
         Button</b> to talk to them!
       objectReference: {fileID: 0}
     - target: {fileID: 1412092524042261059, guid: 1c068bc17cb33754ea17c4eb011024c3, type: 3}
-      propertyPath: tutorialMessages.Array.data[9].text
+      propertyPath: tutorialMessages.Array.data[11].text
       value: There will be an arrow to help you find the problem!
       objectReference: {fileID: 0}
     - target: {fileID: 1412092524042261059, guid: 1c068bc17cb33754ea17c4eb011024c3, type: 3}
-      propertyPath: tutorialMessages.Array.data[10].text
+      propertyPath: tutorialMessages.Array.data[12].text
       value: Thats all. Now go report all the problem!
       objectReference: {fileID: 0}
     - target: {fileID: 1412092524042261059, guid: 1c068bc17cb33754ea17c4eb011024c3, type: 3}
+      propertyPath: tutorialMessages.Array.data[4].image
+      value: 
+      objectReference: {fileID: 21300000, guid: 81fb0809cb0ce0344943e2107d5a3263, type: 3}
+    - target: {fileID: 1412092524042261059, guid: 1c068bc17cb33754ea17c4eb011024c3, type: 3}
+      propertyPath: tutorialMessages.Array.data[5].image
+      value: 
+      objectReference: {fileID: 21300000, guid: e48224981a3590b43a9aab8ece2363e7, type: 3}
+    - target: {fileID: 1412092524042261059, guid: 1c068bc17cb33754ea17c4eb011024c3, type: 3}
+      propertyPath: tutorialMessages.Array.data[6].image
+      value: 
+      objectReference: {fileID: 21300000, guid: f8ebd8b42415645498cfb6db1a30942f, type: 3}
+    - target: {fileID: 1412092524042261059, guid: 1c068bc17cb33754ea17c4eb011024c3, type: 3}
+      propertyPath: tutorialMessages.Array.data[7].image
+      value: 
+      objectReference: {fileID: 21300000, guid: 531b0701cb12e484da3f5cf12b9fc096, type: 3}
+    - target: {fileID: 1412092524042261059, guid: 1c068bc17cb33754ea17c4eb011024c3, type: 3}
+      propertyPath: tutorialMessages.Array.data[8].image
+      value: 
+      objectReference: {fileID: 21300000, guid: 2d16d0be9ad68a946a9f7b341837a001, type: 3}
+    - target: {fileID: 1412092524042261059, guid: 1c068bc17cb33754ea17c4eb011024c3, type: 3}
       propertyPath: tutorialMessages.Array.data[9].image
+      value: 
+      objectReference: {fileID: 21300000, guid: b60dbdc8331576a4d841c36a1dd0c5a0, type: 3}
+    - target: {fileID: 1412092524042261059, guid: 1c068bc17cb33754ea17c4eb011024c3, type: 3}
+      propertyPath: tutorialMessages.Array.data[10].image
+      value: 
+      objectReference: {fileID: 21300000, guid: ad016a8a9844c1847ab1879865c6373a, type: 3}
+    - target: {fileID: 1412092524042261059, guid: 1c068bc17cb33754ea17c4eb011024c3, type: 3}
+      propertyPath: tutorialMessages.Array.data[11].image
       value: 
       objectReference: {fileID: 21300000, guid: 96651252933a6ce48aa45325498196b8, type: 3}
     - target: {fileID: 1969498598514358808, guid: 1c068bc17cb33754ea17c4eb011024c3, type: 3}
