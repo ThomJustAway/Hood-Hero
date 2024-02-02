@@ -1231,8 +1231,8 @@ Tilemap:
   - first: {x: 5, y: -6, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 13
-      m_TileSpriteIndex: 8
+      m_TileIndex: 7
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2934,8 +2934,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 8de5a0dd6cff1144e813295481933754, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: c286285f7faf2584b90ef8f7d88af4e8, type: 2}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 92dd940f0eb3d61479727b2c51fbcfea, type: 2}
   - m_RefCount: 9
     m_Data: {fileID: 11400000, guid: 8abc5d0b35be27c4493b694f4c1c39f9, type: 2}
   - m_RefCount: 3
@@ -2946,7 +2946,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: d5722ca871906f04aba9bcaaa4309d02, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: c0861e937b77b504ca7b689dd7233986, type: 2}
-  - m_RefCount: 3
+  - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: d20286972aea143468ea8e0a188d9033, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: b714f66de96054e42bdb068823fc7704, type: 2}
@@ -3017,8 +3017,8 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 2
     m_Data: {fileID: 5743340916458537025, guid: 2529f58c0f0f4784d925363eac539680, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 3ba27887828d6a44bbbc73ab2471d0ff, type: 3}
   - m_RefCount: 9
     m_Data: {fileID: 6023890332652210146, guid: 2529f58c0f0f4784d925363eac539680, type: 3}
   - m_RefCount: 3
@@ -3031,7 +3031,7 @@ Tilemap:
     m_Data: {fileID: 2734984222330406140, guid: 2529f58c0f0f4784d925363eac539680, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: -3177041666052118749, guid: 2529f58c0f0f4784d925363eac539680, type: 3}
-  - m_RefCount: 3
+  - m_RefCount: 2
     m_Data: {fileID: -2707361895621633745, guid: 2529f58c0f0f4784d925363eac539680, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 496261832, guid: 2529f58c0f0f4784d925363eac539680, type: 3}
@@ -11990,14 +11990,14 @@ MonoBehaviour:
   TimeToDecrease: 0.2
   startingColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   endingColor: {r: 1, g: 0, b: 0, a: 1}
-  closeUpImage: {fileID: 21300000, guid: 9b3c2f50552fcb849a55134d301f452c, type: 3}
-  farAwayImage: {fileID: 21300000, guid: 8272841f7b689ff4abca8b7bb9fe30aa, type: 3}
+  closeUpImage: {fileID: 21300000, guid: d691c8b443c027b4ea709f39fb36ad02, type: 3}
+  farAwayImage: {fileID: 21300000, guid: 4947b859579bf54479628227675377fd, type: 3}
   details:
-  - detail: Big stone here! please remove this
+  - detail: Stone on the path! Please remove it.
     isCorrect: 0
-  - detail: Why is there a big stone here?
+  - detail: Why is there a stone here?
     isCorrect: 0
-  - detail: Singapore is doom!
+  - detail: We are doomed!
     isCorrect: 0
 --- !u!61 &793566555
 BoxCollider2D:
